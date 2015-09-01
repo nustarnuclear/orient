@@ -1,0 +1,93 @@
+material_databank:
+   base_mat:
+      ID = FUEL_1
+      density = 10.41000
+      composition_ID = UO2_1.900
+   /base_mat
+/material_databank
+pin_databank:
+   base_pin:
+      ID = FUEL
+      radii = 0.40950,0.5625,0.6025
+      mat = FUEL,HE,Zr--4
+   /base_pin
+   base_pin:
+      ID = GT
+      radii = 0.5625,0.6025
+      mat = MOD,Zr--4
+   /base_pin
+   base_pin:
+      ID = IT
+      radii = 0.5625,0.6025
+      mat = MOD,Zr--4
+   /base_pin
+   base_pin:
+      ID = CRD
+      radii = 0.43305,0.43685,0.48385,0.5625,0.6025
+      mat = AIC,HE,SS316,MOD,Zr--4
+   /base_pin
+/pin_databank
+branch_calc_databank:
+   base_branch:
+      ID = BRA_TFU_553~1253
+      TFU = 553,603,653,703,753,803,853,903,953,1003,1053,1103,1153,1203,1253
+   /base_branch
+   base_branch:
+      ID = BRA_TMO_615~561
+      TMO = 561,565,569,573,577,581,585,589,593,597,601,605,609,613,615
+   /base_branch
+   base_branch:
+      ID = BRA_BOR_0~2000
+      BOR = 0,200,400,600,800,1000,1200,1400,1600,1800,2000
+   /base_branch
+   base_branch:
+      ID = BRA_CRD
+      CRD =  NONE
+             NONE NONE
+             NONE NONE NONE
+             CRD  NONE NONE CRD 
+             NONE NONE NONE NONE NONE
+             NONE NONE NONE NONE NONE CRD 
+             CRD  NONE NONE CRD  NONE NONE NONE
+             NONE NONE NONE NONE NONE NONE NONE NONE
+             NONE NONE NONE NONE NONE NONE NONE NONE NONE
+   /base_branch
+   base_branch:
+      ID = SET_XEN_TO_ZERO
+      XEN = 1
+   /base_branch
+   base_branch:
+      ID = SDC
+      SDC = 10,20,30,50,100,200,300,500,1000,2000,3000
+   /base_branch
+/branch_calc_databank
+calculation_segment:
+   segment_ID = QNPC_II_AFA_2G_1.9%_NO_BA_FUEL 
+   branch_calc_ID = BRA_TFU_553~1253,BRA_TMO_615~561,BRA_BOR_0~2000,BRA_CRD,SET_XEN_TO_ZERO,SDC
+   assembly_model:
+   model_ID = AFA2G
+      spacer_grid_mat = ZIRC4
+      symmetry = 8
+      num_pin_side = 17
+      pitch_assembly = 21.5040
+      pitch_cell = 1.260
+      pin_map = IT
+                FUEL   FUEL
+                FUEL   FUEL   FUEL
+                GT     FUEL   FUEL   GT  
+                FUEL   FUEL   FUEL   FUEL   FUEL
+                FUEL   FUEL   FUEL   FUEL   FUEL   GT  
+                GT     FUEL   FUEL   GT     FUEL   FUEL   FUEL
+                FUEL   FUEL   FUEL   FUEL   FUEL   FUEL   FUEL   FUEL
+                FUEL   FUEL   FUEL   FUEL   FUEL   FUEL   FUEL   FUEL   FUEL
+
+   /assembly_model
+
+   depletion_state:
+      burnup_point = -50.00000
+      power_density = 34.71520
+      BOR = 500.00000
+      TMO = 585.00000
+      TFU = 877.00000
+   /depletion_state
+/calculation_segment

@@ -1,0 +1,1933 @@
+
+                              RRRRRRRRRR    OOOOOO   BBBBBBBB    III   N         N
+                              R         R  O      O  B       B    I    N N       N
+                              R         R O        O B       B    I    N  N      N
+                              RRRRRRRRRR  O        O BBBBBBBB     I    N   N     N
+                              R R         O        O B       B    I    N    N    N
+                              R   R       O        O B        B   I    N     N   N
+                              R     R     O        O B        B   I    N      N  N
+                              R       R    O      O  B        B   I    N       N N
+                              R         R   OOOOOO   BBBBBBBB    III   N         N
+
+                              ****************************************************
+                              * ROBIN V1.70                                      *
+                              *                                                  *
+                              * Shanghai Nustar Nuclear Power Technology Co. Ltd.*
+                              * CNNC Nuclear Power Operations Management Co. Ltd.*
+                              * All Rights Reserved, 2012~2014                   *
+                              ****************************************************
+
+
+  $$ 15:53:45 $$  Executable ROBIN Path :ROBIN_1.8
+
+  $$ 15:53:45 $$  MicroXS Library Path :RLIB-1.04C
+                  
+
+  $$ 15:53:45 $$  Read the nuclear data library...
+                  
+
+  $$ 15:53:45 $$  Generate the track infomation...
+                  The average track density:    0.27(mm)
+                  
+  $$ 15:53:45 $$  Resonance calculation for depletion step   1 begins...
+                  The current burnup:    0.00(GWd/tU)
+                  
+  $$ 15:53:45 $$  MOC calculation at BOT of depletion step   1 begins...
+                  The current burnup:    0.00(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.932505     1.219060
+                      2            3        1.214147     1.221702
+                      3            3        1.221153     1.222193
+                      4            3        1.222142     1.222282
+                      5            3        1.222277
+                      6            3        1.222278
+                      7            3        1.222281
+                      8            3        1.222282
+                      9            1        1.222283
+                     10            1        1.222284
+                     11            1        1.222284
+                     12            1        1.222285
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:53:52 $$  Predictor depletion calculation of step   1 begins...
+                  
+  $$ 15:53:52 $$  MOC calculation at EOT of depletion step   1 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.214338     1.185576
+                      2            3        1.185168     1.185522
+                      3            3        1.185485     1.185518
+                      4            2        1.185515
+                      5            1        1.185514
+                      6            1        1.185514
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:53:55 $$  Corrector depletion calculation of step   1 begins...
+                  
+  $$ 15:53:55 $$  Projected-corrector depletion calculation of step   1 begins...
+                  
+  $$ 15:53:55 $$  Resonance calculation for depletion step   2 begins...
+                  The current burnup:    0.03(GWd/tU)
+                  
+  $$ 15:53:55 $$  MOC calculation at BOT of depletion step   2 begins...
+                  The current burnup:    0.03(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.185478     1.185355
+                      2            1        1.185354
+                      3            1        1.185353
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:53:57 $$  Predictor depletion calculation of step   2 begins...
+                  
+  $$ 15:53:57 $$  MOC calculation at EOT of depletion step   2 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.184314     1.180146
+                      2            3        1.180093     1.180138
+                      3            1        1.180135
+                      4            1        1.180134
+                      5            1        1.180133
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:53:59 $$  Corrector depletion calculation of step   2 begins...
+                  
+  $$ 15:53:59 $$  Projected-corrector depletion calculation of step   2 begins...
+                  
+  $$ 15:53:59 $$  Resonance calculation for depletion step   3 begins...
+                  The current burnup:    0.05(GWd/tU)
+                  
+  $$ 15:53:59 $$  MOC calculation at BOT of depletion step   3 begins...
+                  The current burnup:    0.05(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            1        1.180131
+                      2            1        1.180130
+                      3            1        1.180130
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:54:00 $$  Predictor depletion calculation of step   3 begins...
+                  
+  $$ 15:54:00 $$  MOC calculation at EOT of depletion step   3 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.179513     1.176595
+                      2            3        1.176566     1.176591
+                      3            1        1.176589
+                      4            1        1.176588
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:54:02 $$  Corrector depletion calculation of step   3 begins...
+                  
+  $$ 15:54:02 $$  Projected-corrector depletion calculation of step   3 begins...
+                  
+  $$ 15:54:02 $$  Resonance calculation for depletion step   4 begins...
+                  The current burnup:    0.10(GWd/tU)
+                  
+  $$ 15:54:02 $$  MOC calculation at BOT of depletion step   4 begins...
+                  The current burnup:    0.10(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            1        1.176587
+                      2            1        1.176586
+                      3            1        1.176585
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:54:03 $$  Predictor depletion calculation of step   4 begins...
+                  
+  $$ 15:54:03 $$  MOC calculation at EOT of depletion step   4 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.175686     1.172847
+                      2            3        1.172796     1.172839
+                      3            2        1.172835
+                      4            1        1.172834
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:54:05 $$  Corrector depletion calculation of step   4 begins...
+                  
+  $$ 15:54:05 $$  Projected-corrector depletion calculation of step   4 begins...
+                  
+  $$ 15:54:05 $$  Resonance calculation for depletion step   5 begins...
+                  The current burnup:    0.20(GWd/tU)
+                  
+  $$ 15:54:06 $$  MOC calculation at BOT of depletion step   5 begins...
+                  The current burnup:    0.20(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            2        1.172828
+                      2            1        1.172826
+                      3            1        1.172824
+                      4            1        1.172823
+                      5            1        1.172821
+                      6            1        1.172819
+                      7            1        1.172818
+                      8            1        1.172816
+                      9            1        1.172815
+                     10            1        1.172814
+                     11            1        1.172812
+                     12            1        1.172811
+                     13            1        1.172810
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:54:09 $$  Predictor depletion calculation of step   5 begins...
+                  
+  $$ 15:54:09 $$  MOC calculation at EOT of depletion step   5 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.170286     1.167368
+                      2            3        1.167196     1.167339
+                      3            3        1.167322
+                      4            2        1.167321
+                      5            1        1.167321
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:54:11 $$  Corrector depletion calculation of step   5 begins...
+                  
+  $$ 15:54:12 $$  Projected-corrector depletion calculation of step   5 begins...
+                  
+  $$ 15:54:12 $$  Resonance calculation for depletion step   6 begins...
+                  The current burnup:    0.50(GWd/tU)
+                  
+  $$ 15:54:12 $$  MOC calculation at BOT of depletion step   6 begins...
+                  The current burnup:    0.50(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.167293     1.167248
+                      2            1        1.167247
+                      3            1        1.167247
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:54:13 $$  Predictor depletion calculation of step   6 begins...
+                  
+  $$ 15:54:13 $$  MOC calculation at EOT of depletion step   6 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.163756     1.162677
+                      2            3        1.162426     1.162632
+                      3            3        1.162607     1.162627
+                      4            2        1.162625
+                      5            1        1.162625
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:54:16 $$  Corrector depletion calculation of step   6 begins...
+                  
+  $$ 15:54:16 $$  Projected-corrector depletion calculation of step   6 begins...
+                  
+  $$ 15:54:16 $$  Resonance calculation for depletion step   7 begins...
+                  The current burnup:    1.00(GWd/tU)
+                  
+  $$ 15:54:16 $$  MOC calculation at BOT of depletion step   7 begins...
+                  The current burnup:    1.00(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.162581     1.162585
+                      2            1        1.162583
+                      3            1        1.162582
+                      4            1        1.162582
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:54:18 $$  Predictor depletion calculation of step   7 begins...
+                  
+  $$ 15:54:18 $$  MOC calculation at EOT of depletion step   7 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.156087     1.151420
+                      2            3        1.150989     1.151362
+                      3            3        1.151319     1.151357
+                      4            3        1.151352
+                      5            1        1.151352
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:54:21 $$  Corrector depletion calculation of step   7 begins...
+                  
+  $$ 15:54:21 $$  Projected-corrector depletion calculation of step   7 begins...
+                  
+  $$ 15:54:21 $$  Resonance calculation for depletion step   8 begins...
+                  The current burnup:    2.00(GWd/tU)
+                  
+  $$ 15:54:21 $$  MOC calculation at BOT of depletion step   8 begins...
+                  The current burnup:    2.00(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.151237     1.151500
+                      2            3        1.151491
+                      3            1        1.151490
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:54:23 $$  Predictor depletion calculation of step   8 begins...
+                  
+  $$ 15:54:23 $$  MOC calculation at EOT of depletion step   8 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.145646     1.138382
+                      2            3        1.138028     1.138367
+                      3            3        1.138332     1.138367
+                      4            3        1.138364
+                      5            2        1.138364
+                      6            1        1.138364
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:54:27 $$  Corrector depletion calculation of step   8 begins...
+                  
+  $$ 15:54:27 $$  Projected-corrector depletion calculation of step   8 begins...
+                  
+  $$ 15:54:27 $$  Resonance calculation for depletion step   9 begins...
+                  The current burnup:    3.00(GWd/tU)
+                  
+  $$ 15:54:27 $$  MOC calculation at BOT of depletion step   9 begins...
+                  The current burnup:    3.00(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.138256     1.138440
+                      2            3        1.138431
+                      3            1        1.138431
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:54:29 $$  Predictor depletion calculation of step   9 begins...
+                  
+  $$ 15:54:29 $$  MOC calculation at EOT of depletion step   9 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.133213     1.124715
+                      2            3        1.124424     1.124741
+                      3            3        1.124712     1.124746
+                      4            3        1.124743
+                      5            2        1.124743
+                      6            1        1.124743
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:54:32 $$  Corrector depletion calculation of step   9 begins...
+                  
+  $$ 15:54:32 $$  Projected-corrector depletion calculation of step   9 begins...
+                  
+  $$ 15:54:32 $$  Resonance calculation for depletion step  10 begins...
+                  The current burnup:    4.00(GWd/tU)
+                  
+  $$ 15:54:32 $$  MOC calculation at BOT of depletion step  10 begins...
+                  The current burnup:    4.00(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.124644     1.124766
+                      2            2        1.124759
+                      3            1        1.124759
+                      4            1        1.124759
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:54:34 $$  Predictor depletion calculation of step  10 begins...
+                  
+  $$ 15:54:34 $$  MOC calculation at EOT of depletion step  10 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.120122     1.111117
+                      2            3        1.110877     1.111174
+                      3            3        1.111151     1.111183
+                      4            3        1.111181
+                      5            2        1.111181
+                      6            1        1.111181
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:54:38 $$  Corrector depletion calculation of step  10 begins...
+                  
+  $$ 15:54:38 $$  Projected-corrector depletion calculation of step  10 begins...
+                  
+  $$ 15:54:38 $$  Resonance calculation for depletion step  11 begins...
+                  The current burnup:    5.00(GWd/tU)
+                  
+  $$ 15:54:38 $$  MOC calculation at BOT of depletion step  11 begins...
+                  The current burnup:    5.00(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.111092     1.111120
+                      2            3        1.111114
+                      3            1        1.111114
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:54:40 $$  Predictor depletion calculation of step  11 begins...
+                  
+  $$ 15:54:40 $$  MOC calculation at EOT of depletion step  11 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.106998     1.097845
+                      2            3        1.097647     1.097925
+                      3            3        1.097907
+                      4            3        1.097909
+                      5            2        1.097912
+                      6            1        1.097913
+                      7            1        1.097914
+                      8            1        1.097915
+                      9            1        1.097917
+                     10            1        1.097918
+                     11            1        1.097919
+                     12            1        1.097920
+                     13            1        1.097921
+                     14            1        1.097922
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:54:45 $$  Corrector depletion calculation of step  11 begins...
+                  
+  $$ 15:54:45 $$  Projected-corrector depletion calculation of step  11 begins...
+                  
+  $$ 15:54:45 $$  Resonance calculation for depletion step  12 begins...
+                  The current burnup:    6.00(GWd/tU)
+                  
+  $$ 15:54:45 $$  MOC calculation at BOT of depletion step  12 begins...
+                  The current burnup:    6.00(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.097844     1.097813
+                      2            3        1.097809
+                      3            1        1.097809
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:54:47 $$  Predictor depletion calculation of step  12 begins...
+                  
+  $$ 15:54:47 $$  MOC calculation at EOT of depletion step  12 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.094151     1.085014
+                      2            3        1.084851     1.085110
+                      3            3        1.085095
+                      4            3        1.085098
+                      5            2        1.085100
+                      6            1        1.085102
+                      7            1        1.085103
+                      8            1        1.085104
+                      9            1        1.085105
+                     10            1        1.085106
+                     11            1        1.085107
+                     12            1        1.085108
+                     13            1        1.085109
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:54:52 $$  Corrector depletion calculation of step  12 begins...
+                  
+  $$ 15:54:52 $$  Projected-corrector depletion calculation of step  12 begins...
+                  
+  $$ 15:54:52 $$  Resonance calculation for depletion step  13 begins...
+                  The current burnup:    7.00(GWd/tU)
+                  
+  $$ 15:54:52 $$  MOC calculation at BOT of depletion step  13 begins...
+                  The current burnup:    7.00(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.085042     1.084971
+                      2            3        1.084967
+                      3            1        1.084967
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:54:54 $$  Predictor depletion calculation of step  13 begins...
+                  
+  $$ 15:54:54 $$  MOC calculation at EOT of depletion step  13 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.081710     1.072662
+                      2            3        1.072527     1.072769
+                      3            3        1.072757
+                      4            3        1.072760
+                      5            2        1.072762
+                      6            1        1.072764
+                      7            1        1.072765
+                      8            1        1.072766
+                      9            1        1.072767
+                     10            1        1.072768
+                     11            1        1.072769
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:54:58 $$  Corrector depletion calculation of step  13 begins...
+                  
+  $$ 15:54:59 $$  Projected-corrector depletion calculation of step  13 begins...
+                  
+  $$ 15:54:59 $$  Resonance calculation for depletion step  14 begins...
+                  The current burnup:    8.00(GWd/tU)
+                  
+  $$ 15:54:59 $$  MOC calculation at BOT of depletion step  14 begins...
+                  The current burnup:    8.00(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.072714     1.072615
+                      2            3        1.072612
+                      3            1        1.072612
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:55:01 $$  Predictor depletion calculation of step  14 begins...
+                  
+  $$ 15:55:01 $$  MOC calculation at EOT of depletion step  14 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.069703     1.060780
+                      2            3        1.060669     1.060893
+                      3            3        1.060883
+                      4            3        1.060886
+                      5            2        1.060889
+                      6            1        1.060890
+                      7            1        1.060891
+                      8            1        1.060892
+                      9            1        1.060893
+                     10            1        1.060894
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:55:05 $$  Corrector depletion calculation of step  14 begins...
+                  
+  $$ 15:55:05 $$  Projected-corrector depletion calculation of step  14 begins...
+                  
+  $$ 15:55:05 $$  Resonance calculation for depletion step  15 begins...
+                  The current burnup:    9.00(GWd/tU)
+                  
+  $$ 15:55:05 $$  MOC calculation at BOT of depletion step  15 begins...
+                  The current burnup:    9.00(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.060849     1.060736
+                      2            3        1.060734
+                      3            2        1.060734
+                      4            1        1.060734
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:55:07 $$  Predictor depletion calculation of step  15 begins...
+                  
+  $$ 15:55:07 $$  MOC calculation at EOT of depletion step  15 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.058127     1.049342
+                      2            3        1.049251     1.049458
+                      3            3        1.049450
+                      4            3        1.049453
+                      5            2        1.049456
+                      6            1        1.049457
+                      7            1        1.049458
+                      8            1        1.049459
+                      9            1        1.049460
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:55:12 $$  Corrector depletion calculation of step  15 begins...
+                  
+  $$ 15:55:12 $$  Projected-corrector depletion calculation of step  15 begins...
+                  
+  $$ 15:55:12 $$  Resonance calculation for depletion step  16 begins...
+                  The current burnup:   10.00(GWd/tU)
+                  
+  $$ 15:55:12 $$  MOC calculation at BOT of depletion step  16 begins...
+                  The current burnup:   10.00(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.049421     1.049282
+                      2            3        1.049281
+                      3            2        1.049281
+                      4            1        1.049281
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:55:14 $$  Predictor depletion calculation of step  16 begins...
+                  
+  $$ 15:55:14 $$  MOC calculation at EOT of depletion step  16 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.044845     1.027874
+                      2            3        1.027744     1.028115
+                      3            3        1.028105
+                      4            3        1.028112
+                      5            3        1.028118
+                      6            1        1.028120
+                      7            1        1.028122
+                      8            1        1.028124
+                      9            1        1.028125
+                     10            1        1.028127
+                     11            1        1.028128
+                     12            1        1.028130
+                     13            1        1.028131
+                     14            1        1.028132
+                     15            1        1.028133
+                     16            1        1.028134
+                     17            1        1.028135
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:55:20 $$  Corrector depletion calculation of step  16 begins...
+                  
+  $$ 15:55:20 $$  Projected-corrector depletion calculation of step  16 begins...
+                  
+  $$ 15:55:20 $$  Resonance calculation for depletion step  17 begins...
+                  The current burnup:   12.00(GWd/tU)
+                  
+  $$ 15:55:20 $$  MOC calculation at BOT of depletion step  17 begins...
+                  The current burnup:   12.00(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.028017     1.027581
+                      2            3        1.027578
+                      3            3        1.027579
+                      4            1        1.027580
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:55:23 $$  Predictor depletion calculation of step  17 begins...
+                  
+  $$ 15:55:23 $$  MOC calculation at EOT of depletion step  17 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.023938     1.007556
+                      2            3        1.007472     1.007786
+                      3            3        1.007781
+                      4            3        1.007787
+                      5            3        1.007793
+                      6            1        1.007795
+                      7            1        1.007796
+                      8            1        1.007798
+                      9            1        1.007799
+                     10            1        1.007801
+                     11            1        1.007802
+                     12            1        1.007803
+                     13            1        1.007804
+                     14            1        1.007805
+                     15            1        1.007806
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:55:28 $$  Corrector depletion calculation of step  17 begins...
+                  
+  $$ 15:55:29 $$  Projected-corrector depletion calculation of step  17 begins...
+                  
+  $$ 15:55:29 $$  Resonance calculation for depletion step  18 begins...
+                  The current burnup:   14.00(GWd/tU)
+                  
+  $$ 15:55:29 $$  MOC calculation at BOT of depletion step  18 begins...
+                  The current burnup:   14.00(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.007721     1.007220
+                      2            3        1.007219
+                      3            3        1.007221
+                      4            1        1.007221
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:55:31 $$  Predictor depletion calculation of step  18 begins...
+                  
+  $$ 15:55:31 $$  MOC calculation at EOT of depletion step  18 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.004183     0.988400
+                      2            3        0.988349     0.988615
+                      3            3        0.988613
+                      4            3        0.988619
+                      5            3        0.988624
+                      6            1        0.988626
+                      7            1        0.988627
+                      8            1        0.988629
+                      9            1        0.988630
+                     10            1        0.988631
+                     11            1        0.988632
+                     12            1        0.988633
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:55:36 $$  Corrector depletion calculation of step  18 begins...
+                  
+  $$ 15:55:36 $$  Projected-corrector depletion calculation of step  18 begins...
+                  
+  $$ 15:55:36 $$  Resonance calculation for depletion step  19 begins...
+                  The current burnup:   16.00(GWd/tU)
+                  
+  $$ 15:55:37 $$  MOC calculation at BOT of depletion step  19 begins...
+                  The current burnup:   16.00(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.988571     0.988010
+                      2            3        0.988011
+                      3            3        0.988013
+                      4            1        0.988014
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:55:39 $$  Predictor depletion calculation of step  19 begins...
+                  
+  $$ 15:55:39 $$  MOC calculation at EOT of depletion step  19 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.985438     0.970272
+                      2            3        0.970244     0.970472
+                      3            3        0.970472
+                      4            3        0.970478
+                      5            3        0.970482
+                      6            1        0.970484
+                      7            1        0.970485
+                      8            1        0.970486
+                      9            1        0.970487
+                     10            1        0.970488
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:55:43 $$  Corrector depletion calculation of step  19 begins...
+                  
+  $$ 15:55:44 $$  Projected-corrector depletion calculation of step  19 begins...
+                  
+  $$ 15:55:44 $$  Resonance calculation for depletion step  20 begins...
+                  The current burnup:   18.00(GWd/tU)
+                  
+  $$ 15:55:44 $$  MOC calculation at BOT of depletion step  20 begins...
+                  The current burnup:   18.00(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.970443     0.969845
+                      2            3        0.969847
+                      3            3        0.969849
+                      4            1        0.969849
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:55:46 $$  Predictor depletion calculation of step  20 begins...
+                  
+  $$ 15:55:46 $$  MOC calculation at EOT of depletion step  20 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.967628     0.953113
+                      2            3        0.953100
+                      3            3        0.953140     0.953319
+                      4            3        0.953321
+                      5            2        0.953322
+                      6            1        0.953322
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:55:50 $$  Corrector depletion calculation of step  20 begins...
+                  
+  $$ 15:55:50 $$  Projected-corrector depletion calculation of step  20 begins...
+                  
+  $$ 15:55:50 $$  Resonance calculation for depletion step  21 begins...
+                  The current burnup:   20.00(GWd/tU)
+                  
+  $$ 15:55:50 $$  MOC calculation at BOT of depletion step  21 begins...
+                  The current burnup:   20.00(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.953285     0.952654
+                      2            3        0.952657
+                      3            3        0.952659
+                      4            1        0.952659
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:55:52 $$  Predictor depletion calculation of step  21 begins...
+                  
+  $$ 15:55:53 $$  MOC calculation at EOT of depletion step  21 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.950712     0.936894
+                      2            3        0.936892
+                      3            3        0.936929     0.937083
+                      4            3        0.937085
+                      5            2        0.937086
+                      6            1        0.937086
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:55:56 $$  Corrector depletion calculation of step  21 begins...
+                  
+  $$ 15:55:56 $$  Projected-corrector depletion calculation of step  21 begins...
+                  
+  $$ 15:55:56 $$  Resonance calculation for depletion step  22 begins...
+                  The current burnup:   22.00(GWd/tU)
+                  
+  $$ 15:55:56 $$  MOC calculation at BOT of depletion step  22 begins...
+                  The current burnup:   22.00(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.937056     0.936442
+                      2            3        0.936445
+                      3            3        0.936447
+                      4            1        0.936448
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:55:59 $$  Predictor depletion calculation of step  22 begins...
+                  
+  $$ 15:55:59 $$  MOC calculation at EOT of depletion step  22 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.934712     0.921608
+                      2            3        0.921612
+                      3            3        0.921646     0.921780
+                      4            3        0.921782
+                      5            2        0.921783
+                      6            1        0.921783
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:56:02 $$  Corrector depletion calculation of step  22 begins...
+                  
+  $$ 15:56:02 $$  Projected-corrector depletion calculation of step  22 begins...
+                  
+  $$ 15:56:02 $$  Resonance calculation for depletion step  23 begins...
+                  The current burnup:   24.00(GWd/tU)
+                  
+  $$ 15:56:02 $$  MOC calculation at BOT of depletion step  23 begins...
+                  The current burnup:   24.00(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.921758     0.921159
+                      2            3        0.921162
+                      3            3        0.921164
+                      4            1        0.921164
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:56:05 $$  Predictor depletion calculation of step  23 begins...
+                  
+  $$ 15:56:05 $$  MOC calculation at EOT of depletion step  23 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.919593     0.907229
+                      2            3        0.907235
+                      3            3        0.907266     0.907385
+                      4            3        0.907387
+                      5            2        0.907388
+                      6            1        0.907388
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:56:08 $$  Corrector depletion calculation of step  23 begins...
+                  
+  $$ 15:56:08 $$  Projected-corrector depletion calculation of step  23 begins...
+                  
+  $$ 15:56:08 $$  Resonance calculation for depletion step  24 begins...
+                  The current burnup:   26.00(GWd/tU)
+                  
+  $$ 15:56:08 $$  MOC calculation at BOT of depletion step  24 begins...
+                  The current burnup:   26.00(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.907364     0.906787
+                      2            3        0.906790
+                      3            3        0.906792
+                      4            1        0.906792
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:56:11 $$  Predictor depletion calculation of step  24 begins...
+                  
+  $$ 15:56:11 $$  MOC calculation at EOT of depletion step  24 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.905351     0.893742
+                      2            3        0.893749
+                      3            3        0.893778     0.893884
+                      4            3        0.893887
+                      5            2        0.893887
+                      6            1        0.893887
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:56:15 $$  Corrector depletion calculation of step  24 begins...
+                  
+  $$ 15:56:15 $$  Projected-corrector depletion calculation of step  24 begins...
+                  
+  $$ 15:56:15 $$  Resonance calculation for depletion step  25 begins...
+                  The current burnup:   28.00(GWd/tU)
+                  
+  $$ 15:56:15 $$  MOC calculation at BOT of depletion step  25 begins...
+                  The current burnup:   28.00(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.893863     0.893316
+                      2            3        0.893320
+                      3            3        0.893321
+                      4            1        0.893321
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:56:17 $$  Predictor depletion calculation of step  25 begins...
+                  
+  $$ 15:56:18 $$  MOC calculation at EOT of depletion step  25 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.891984     0.881138
+                      2            3        0.881144
+                      3            3        0.881171     0.881267
+                      4            3        0.881269
+                      5            2        0.881270
+                      6            1        0.881270
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:56:21 $$  Corrector depletion calculation of step  25 begins...
+                  
+  $$ 15:56:21 $$  Projected-corrector depletion calculation of step  25 begins...
+                  
+  $$ 15:56:21 $$  Resonance calculation for depletion step  26 begins...
+                  The current burnup:   30.00(GWd/tU)
+                  
+  $$ 15:56:21 $$  MOC calculation at BOT of depletion step  26 begins...
+                  The current burnup:   30.00(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.881245     0.880736
+                      2            3        0.880739
+                      3            3        0.880740
+                      4            1        0.880740
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:56:24 $$  Predictor depletion calculation of step  26 begins...
+                  
+  $$ 15:56:24 $$  MOC calculation at EOT of depletion step  26 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.879486     0.869400
+                      2            3        0.869404
+                      3            3        0.869428     0.869517
+                      4            3        0.869519
+                      5            1        0.869519
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:56:27 $$  Corrector depletion calculation of step  26 begins...
+                  
+  $$ 15:56:27 $$  Projected-corrector depletion calculation of step  26 begins...
+                  
+  $$ 15:56:27 $$  Resonance calculation for depletion step  27 begins...
+                  The current burnup:   32.00(GWd/tU)
+                  
+  $$ 15:56:27 $$  MOC calculation at BOT of depletion step  27 begins...
+                  The current burnup:   32.00(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.869494     0.869029
+                      2            3        0.869031
+                      3            2        0.869032
+                      4            1        0.869033
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:56:29 $$  Predictor depletion calculation of step  27 begins...
+                  
+  $$ 15:56:29 $$  MOC calculation at EOT of depletion step  27 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.867848     0.858506
+                      2            3        0.858508
+                      3            3        0.858531     0.858613
+                      4            3        0.858615
+                      5            1        0.858615
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:56:32 $$  Corrector depletion calculation of step  27 begins...
+                  
+  $$ 15:56:32 $$  Projected-corrector depletion calculation of step  27 begins...
+                  
+  $$ 15:56:32 $$  Resonance calculation for depletion step  28 begins...
+                  The current burnup:   34.00(GWd/tU)
+                  
+  $$ 15:56:33 $$  MOC calculation at BOT of depletion step  28 begins...
+                  The current burnup:   34.00(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.858588     0.858167
+                      2            3        0.858169
+                      3            2        0.858169
+                      4            1        0.858170
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:56:35 $$  Predictor depletion calculation of step  28 begins...
+                  
+  $$ 15:56:35 $$  MOC calculation at EOT of depletion step  28 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.857044     0.848423
+                      2            3        0.848421
+                      3            3        0.848443     0.848521
+                      4            3        0.848522
+                      5            1        0.848523
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:56:38 $$  Corrector depletion calculation of step  28 begins...
+                  
+  $$ 15:56:38 $$  Projected-corrector depletion calculation of step  28 begins...
+                  
+  $$ 15:56:38 $$  Resonance calculation for depletion step  29 begins...
+                  The current burnup:   36.00(GWd/tU)
+                  
+  $$ 15:56:38 $$  MOC calculation at BOT of depletion step  29 begins...
+                  The current burnup:   36.00(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.848493     0.848110
+                      2            3        0.848112
+                      3            2        0.848112
+                      4            1        0.848113
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:56:40 $$  Predictor depletion calculation of step  29 begins...
+                  
+  $$ 15:56:40 $$  MOC calculation at EOT of depletion step  29 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.847038     0.839107
+                      2            3        0.839102
+                      3            3        0.839122
+                      4            3        0.839138
+                      5            3        0.839150
+                      6            1        0.839153
+                      7            1        0.839157
+                      8            1        0.839159
+                      9            1        0.839162
+                     10            1        0.839165
+                     11            1        0.839167
+                     12            1        0.839169
+                     13            1        0.839171
+                     14            1        0.839173
+                     15            1        0.839175
+                     16            1        0.839176
+                     17            1        0.839178
+                     18            1        0.839179
+                     19            1        0.839180
+                     20            1        0.839182
+                     21            1        0.839183
+                     22            1        0.839184
+                     23            1        0.839185
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:56:48 $$  Corrector depletion calculation of step  29 begins...
+                  
+  $$ 15:56:48 $$  Projected-corrector depletion calculation of step  29 begins...
+                  
+  $$ 15:56:48 $$  Resonance calculation for depletion step  30 begins...
+                  The current burnup:   38.00(GWd/tU)
+                  
+  $$ 15:56:48 $$  MOC calculation at BOT of depletion step  30 begins...
+                  The current burnup:   38.00(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.839155     0.838820
+                      2            3        0.838821
+                      3            2        0.838822
+                      4            1        0.838822
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:56:50 $$  Predictor depletion calculation of step  30 begins...
+                  
+  $$ 15:56:50 $$  MOC calculation at EOT of depletion step  30 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.837793     0.830515
+                      2            3        0.830507
+                      3            3        0.830526
+                      4            3        0.830541
+                      5            2        0.830549
+                      6            1        0.830552
+                      7            1        0.830555
+                      8            1        0.830558
+                      9            1        0.830561
+                     10            1        0.830564
+                     11            1        0.830566
+                     12            1        0.830568
+                     13            1        0.830570
+                     14            1        0.830572
+                     15            1        0.830574
+                     16            1        0.830576
+                     17            1        0.830577
+                     18            1        0.830579
+                     19            1        0.830580
+                     20            1        0.830581
+                     21            1        0.830582
+                     22            1        0.830584
+                     23            1        0.830585
+                     24            1        0.830585
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:56:57 $$  Corrector depletion calculation of step  30 begins...
+                  
+  $$ 15:56:57 $$  Projected-corrector depletion calculation of step  30 begins...
+                  
+  $$ 15:56:57 $$  Resonance calculation for depletion step  31 begins...
+                  The current burnup:   40.00(GWd/tU)
+                  
+  $$ 15:56:57 $$  MOC calculation at BOT of depletion step  31 begins...
+                  The current burnup:   40.00(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.830554     0.830256
+                      2            3        0.830256
+                      3            2        0.830257
+                      4            1        0.830257
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:57:00 $$  Predictor depletion calculation of step  31 begins...
+                  
+  $$ 15:57:00 $$  MOC calculation at EOT of depletion step  31 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.829269     0.822604
+                      2            3        0.822593
+                      3            3        0.822610
+                      4            3        0.822625
+                      5            2        0.822632
+                      6            1        0.822636
+                      7            1        0.822639
+                      8            1        0.822642
+                      9            1        0.822644
+                     10            1        0.822647
+                     11            1        0.822649
+                     12            1        0.822651
+                     13            1        0.822653
+                     14            1        0.822655
+                     15            1        0.822657
+                     16            1        0.822658
+                     17            1        0.822660
+                     18            1        0.822661
+                     19            1        0.822662
+                     20            1        0.822664
+                     21            1        0.822665
+                     22            1        0.822666
+                     23            1        0.822667
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:57:06 $$  Corrector depletion calculation of step  31 begins...
+                  
+  $$ 15:57:06 $$  Projected-corrector depletion calculation of step  31 begins...
+                  
+  $$ 15:57:06 $$  Resonance calculation for depletion step  32 begins...
+                  The current burnup:   42.00(GWd/tU)
+                  
+  $$ 15:57:06 $$  MOC calculation at BOT of depletion step  32 begins...
+                  The current burnup:   42.00(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.822633     0.822373
+                      2            3        0.822373
+                      3            1        0.822373
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:57:08 $$  Predictor depletion calculation of step  32 begins...
+                  
+  $$ 15:57:08 $$  MOC calculation at EOT of depletion step  32 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.821423     0.815327
+                      2            3        0.815314
+                      3            3        0.815330
+                      4            3        0.815343
+                      5            1        0.815347
+                      6            1        0.815351
+                      7            1        0.815354
+                      8            1        0.815357
+                      9            1        0.815360
+                     10            1        0.815362
+                     11            1        0.815365
+                     12            1        0.815367
+                     13            1        0.815369
+                     14            1        0.815371
+                     15            1        0.815373
+                     16            1        0.815374
+                     17            1        0.815376
+                     18            1        0.815377
+                     19            1        0.815379
+                     20            1        0.815380
+                     21            1        0.815381
+                     22            1        0.815382
+                     23            1        0.815383
+                     24            1        0.815384
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:57:15 $$  Corrector depletion calculation of step  32 begins...
+                  
+  $$ 15:57:15 $$  Projected-corrector depletion calculation of step  32 begins...
+                  
+  $$ 15:57:15 $$  Resonance calculation for depletion step  33 begins...
+                  The current burnup:   44.00(GWd/tU)
+                  
+  $$ 15:57:16 $$  MOC calculation at BOT of depletion step  33 begins...
+                  The current burnup:   44.00(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.815349     0.815124
+                      2            3        0.815123
+                      3            1        0.815124
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:57:17 $$  Predictor depletion calculation of step  33 begins...
+                  
+  $$ 15:57:18 $$  MOC calculation at EOT of depletion step  33 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.814209     0.808637
+                      2            3        0.808621
+                      3            3        0.808636
+                      4            3        0.808649
+                      5            1        0.808653
+                      6            1        0.808656
+                      7            1        0.808659
+                      8            1        0.808662
+                      9            1        0.808665
+                     10            1        0.808667
+                     11            1        0.808670
+                     12            1        0.808672
+                     13            1        0.808674
+                     14            1        0.808676
+                     15            1        0.808678
+                     16            1        0.808679
+                     17            1        0.808681
+                     18            1        0.808682
+                     19            1        0.808683
+                     20            1        0.808685
+                     21            1        0.808686
+                     22            1        0.808687
+                     23            1        0.808688
+                     24            1        0.808689
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:57:24 $$  Corrector depletion calculation of step  33 begins...
+                  
+  $$ 15:57:24 $$  Projected-corrector depletion calculation of step  33 begins...
+                  
+  $$ 15:57:24 $$  Resonance calculation for depletion step  34 begins...
+                  The current burnup:   46.00(GWd/tU)
+                  
+  $$ 15:57:25 $$  MOC calculation at BOT of depletion step  34 begins...
+                  The current burnup:   46.00(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.808653     0.808463
+                      2            3        0.808462
+                      3            1        0.808462
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:57:26 $$  Predictor depletion calculation of step  34 begins...
+                  
+  $$ 15:57:27 $$  MOC calculation at EOT of depletion step  34 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.807581     0.802489
+                      2            3        0.802471
+                      3            3        0.802485
+                      4            3        0.802497
+                      5            1        0.802501
+                      6            1        0.802504
+                      7            1        0.802507
+                      8            1        0.802510
+                      9            1        0.802512
+                     10            1        0.802515
+                     11            1        0.802517
+                     12            1        0.802519
+                     13            1        0.802521
+                     14            1        0.802523
+                     15            1        0.802525
+                     16            1        0.802526
+                     17            1        0.802528
+                     18            1        0.802529
+                     19            1        0.802530
+                     20            1        0.802532
+                     21            1        0.802533
+                     22            1        0.802534
+                     23            1        0.802535
+                     24            1        0.802536
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:57:33 $$  Corrector depletion calculation of step  34 begins...
+                  
+  $$ 15:57:33 $$  Projected-corrector depletion calculation of step  34 begins...
+                  
+  $$ 15:57:33 $$  Resonance calculation for depletion step  35 begins...
+                  The current burnup:   48.00(GWd/tU)
+                  
+  $$ 15:57:34 $$  MOC calculation at BOT of depletion step  35 begins...
+                  The current burnup:   48.00(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.802499     0.802336
+                      2            3        0.802335
+                      3            1        0.802335
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:57:35 $$  Predictor depletion calculation of step  35 begins...
+                  
+  $$ 15:57:36 $$  MOC calculation at EOT of depletion step  35 begins...
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.801487     0.796830
+                      2            3        0.796810
+                      3            3        0.796823
+                      4            3        0.796835
+                      5            1        0.796838
+                      6            1        0.796842
+                      7            1        0.796844
+                      8            1        0.796847
+                      9            1        0.796850
+                     10            1        0.796852
+                     11            1        0.796854
+                     12            1        0.796856
+                     13            1        0.796858
+                     14            1        0.796860
+                     15            1        0.796861
+                     16            1        0.796863
+                     17            1        0.796864
+                     18            1        0.796866
+                     19            1        0.796867
+                     20            1        0.796868
+                     21            1        0.796869
+                     22            1        0.796870
+                     23            1        0.796871
+                  MOC calculation at EOT of this step finished.
+                  
+  $$ 15:57:42 $$  Corrector depletion calculation of step  35 begins...
+                  
+  $$ 15:57:42 $$  Projected-corrector depletion calculation of step  35 begins...
+                  
+  $$ 15:57:42 $$  Resonance calculation for depletion step  36 begins...
+                  The current burnup:   50.00(GWd/tU)
+                  
+  $$ 15:57:43 $$  MOC calculation at BOT of depletion step  36 begins...
+                  The current burnup:   50.00(GWd/tU)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.796834     0.796693
+                      2            3        0.796691
+                      3            1        0.796691
+                  MOC calculation at BOT of this step finished.
+                  
+  $$ 15:57:45 $$  Restart calculation of branch sub-case   1 begins...
+                  Current burnup point      :    0.00 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.03(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.839290     1.133176
+                      2            3        1.135486     1.133289
+                      3            3        1.133517     1.133272
+                      4            3        1.133294     1.133265
+                      5            3        1.133267
+                      6            2        1.133267
+                      7            1        1.133267
+                      8            1        1.133267
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    4.29(s)
+                  
+  $$ 15:57:50 $$  Restart calculation of branch sub-case   2 begins...
+                  Current burnup point      :    0.03 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.06(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.126047     1.101948
+                      2            3        1.101575     1.101863
+                      3            3        1.101829     1.101855
+                      4            2        1.101852
+                      5            1        1.101852
+                      6            1        1.101852
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    2.96(s)
+                  
+  $$ 15:57:54 $$  Restart calculation of branch sub-case   3 begins...
+                  Current burnup point      :    0.05 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.07(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.100903     1.097370
+                      2            3        1.097322     1.097359
+                      3            1        1.097356
+                      4            1        1.097355
+                      5            1        1.097354
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    2.18(s)
+                  
+  $$ 15:57:57 $$  Restart calculation of branch sub-case   4 begins...
+                  Current burnup point      :    0.10 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.07(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.096787     1.094297
+                      2            3        1.094270     1.094290
+                      3            1        1.094289
+                      4            1        1.094288
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    1.88(s)
+                  
+  $$ 15:57:59 $$  Restart calculation of branch sub-case   5 begins...
+                  Current burnup point      :    0.20 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.06(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.093464     1.091193
+                      2            3        1.091144     1.091181
+                      3            2        1.091176
+                      4            1        1.091176
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    2.22(s)
+                  
+  $$ 15:58:02 $$  Restart calculation of branch sub-case   6 begins...
+                  Current burnup point      :    0.50 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.06(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.088872     1.087271
+                      2            3        1.087107     1.087227
+                      3            3        1.087211
+                      4            2        1.087210
+                      5            1        1.087210
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    2.80(s)
+                  
+  $$ 15:58:06 $$  Restart calculation of branch sub-case   7 begins...
+                  Current burnup point      :    1.00 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.06(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.084004     1.084541
+                      2            3        1.084301     1.084475
+                      3            3        1.084451     1.084468
+                      4            2        1.084466
+                      5            1        1.084466
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    2.70(s)
+                  
+  $$ 15:58:09 $$  Restart calculation of branch sub-case   8 begins...
+                  Current burnup point      :    2.00 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.06(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.078381     1.076658
+                      2            3        1.076239     1.076560
+                      3            3        1.076518     1.076551
+                      4            3        1.076546
+                      5            1        1.076546
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    2.94(s)
+                  
+  $$ 15:58:13 $$  Restart calculation of branch sub-case   9 begins...
+                  Current burnup point      :    3.00 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.06(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.071001     1.066197
+                      2            3        1.065850     1.066145
+                      3            3        1.066111     1.066141
+                      4            3        1.066138
+                      5            2        1.066138
+                      6            1        1.066138
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    3.48(s)
+                  
+  $$ 15:58:17 $$  Restart calculation of branch sub-case  10 begins...
+                  Current burnup point      :    4.00 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.08(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.061147     1.054736
+                      2            3        1.054449     1.054728
+                      3            3        1.054699     1.054728
+                      4            3        1.054726
+                      5            2        1.054726
+                      6            1        1.054726
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    3.56(s)
+                  
+  $$ 15:58:21 $$  Restart calculation of branch sub-case  11 begins...
+                  Current burnup point      :    5.00 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.06(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.050265     1.042996
+                      2            3        1.042759     1.043022
+                      3            3        1.042999     1.043027
+                      4            3        1.043025
+                      5            2        1.043025
+                      6            1        1.043025
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    3.51(s)
+                  
+  $$ 15:58:25 $$  Restart calculation of branch sub-case  12 begins...
+                  Current burnup point      :    6.00 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.06(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.039046     1.031357
+                      2            3        1.031161     1.031409
+                      3            3        1.031391
+                      4            3        1.031392
+                      5            2        1.031395
+                      6            1        1.031396
+                      7            1        1.031397
+                      8            1        1.031399
+                      9            1        1.031400
+                     10            1        1.031401
+                     11            1        1.031402
+                     12            1        1.031403
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    4.68(s)
+                  
+  $$ 15:58:30 $$  Restart calculation of branch sub-case  13 begins...
+                  Current burnup point      :    7.00 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.06(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.027857     1.019985
+                      2            3        1.019823     1.020056
+                      3            3        1.020041
+                      4            3        1.020043
+                      5            2        1.020046
+                      6            1        1.020047
+                      7            1        1.020048
+                      8            1        1.020049
+                      9            1        1.020050
+                     10            1        1.020051
+                     11            1        1.020052
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    4.50(s)
+                  
+  $$ 15:58:36 $$  Restart calculation of branch sub-case  14 begins...
+                  Current burnup point      :    8.00 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.06(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.016888     1.008937
+                      2            3        1.008803     1.009019
+                      3            3        1.009007
+                      4            3        1.009010
+                      5            2        1.009013
+                      6            1        1.009014
+                      7            1        1.009015
+                      8            1        1.009016
+                      9            1        1.009017
+                     10            1        1.009018
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    4.00(s)
+                  
+  $$ 15:58:40 $$  Restart calculation of branch sub-case  15 begins...
+                  Current burnup point      :    9.00 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.08(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        1.006186     0.998232
+                      2            3        0.998122     0.998322
+                      3            3        0.998313
+                      4            3        0.998316
+                      5            2        0.998318
+                      6            1        0.998319
+                      7            1        0.998321
+                      8            1        0.998322
+                      9            1        0.998323
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    4.01(s)
+                  
+  $$ 15:58:45 $$  Restart calculation of branch sub-case  16 begins...
+                  Current burnup point      :   10.00 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.07(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.995779     0.987844
+                      2            3        0.987754     0.987940
+                      3            3        0.987933
+                      4            3        0.987936
+                      5            2        0.987938
+                      6            1        0.987939
+                      7            1        0.987940
+                      8            1        0.987941
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    3.71(s)
+                  
+  $$ 15:58:50 $$  Restart calculation of branch sub-case  17 begins...
+                  Current burnup point      :   12.00 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.07(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.983543     0.967885
+                      2            3        0.967755     0.968095
+                      3            3        0.968086
+                      4            3        0.968092
+                      5            3        0.968098
+                      6            1        0.968100
+                      7            1        0.968102
+                      8            1        0.968104
+                      9            1        0.968105
+                     10            1        0.968107
+                     11            1        0.968108
+                     12            1        0.968109
+                     13            1        0.968110
+                     14            1        0.968111
+                     15            1        0.968112
+                     16            1        0.968113
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    5.64(s)
+                  
+  $$ 15:58:56 $$  Restart calculation of branch sub-case  18 begins...
+                  Current burnup point      :   14.00 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.07(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.964492     0.949127
+                      2            3        0.949043     0.949333
+                      3            3        0.949328
+                      4            3        0.949334
+                      5            3        0.949340
+                      6            1        0.949342
+                      7            1        0.949343
+                      8            1        0.949344
+                      9            1        0.949346
+                     10            1        0.949347
+                     11            1        0.949348
+                     12            1        0.949349
+                     13            1        0.949350
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    5.03(s)
+                  
+  $$ 15:59:02 $$  Restart calculation of branch sub-case  19 begins...
+                  Current burnup point      :   16.00 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.06(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.946321     0.931327
+                      2            3        0.931276     0.931523
+                      3            3        0.931521
+                      4            3        0.931527
+                      5            3        0.931532
+                      6            1        0.931534
+                      7            1        0.931535
+                      8            1        0.931536
+                      9            1        0.931537
+                     10            1        0.931538
+                     11            1        0.931539
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    4.56(s)
+                  
+  $$ 15:59:07 $$  Restart calculation of branch sub-case  20 begins...
+                  Current burnup point      :   18.00 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.07(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.928964     0.914418
+                      2            3        0.914391     0.914602
+                      3            3        0.914602
+                      4            3        0.914608
+                      5            3        0.914612
+                      6            1        0.914614
+                      7            1        0.914615
+                      8            1        0.914616
+                      9            1        0.914617
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    4.17(s)
+                  
+  $$ 15:59:12 $$  Restart calculation of branch sub-case  21 begins...
+                  Current burnup point      :   20.00 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.06(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.912389     0.898369
+                      2            3        0.898357
+                      3            3        0.898397     0.898560
+                      4            3        0.898562
+                      5            2        0.898563
+                      6            1        0.898563
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    3.61(s)
+                  
+  $$ 15:59:16 $$  Restart calculation of branch sub-case  22 begins...
+                  Current burnup point      :   22.00 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.06(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.896605     0.883203
+                      2            3        0.883201
+                      3            3        0.883239     0.883379
+                      4            3        0.883382
+                      5            2        0.883382
+                      6            1        0.883383
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    3.42(s)
+                  
+  $$ 15:59:20 $$  Restart calculation of branch sub-case  23 begins...
+                  Current burnup point      :   24.00 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.07(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.881633     0.868889
+                      2            3        0.868893
+                      3            3        0.868928     0.869051
+                      4            3        0.869053
+                      5            2        0.869053
+                      6            1        0.869054
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    3.41(s)
+                  
+  $$ 15:59:24 $$  Restart calculation of branch sub-case  24 begins...
+                  Current burnup point      :   26.00 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.06(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.867467     0.855420
+                      2            3        0.855427
+                      3            3        0.855459     0.855568
+                      4            3        0.855570
+                      5            2        0.855570
+                      6            1        0.855571
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    3.57(s)
+                  
+  $$ 15:59:28 $$  Restart calculation of branch sub-case  25 begins...
+                  Current burnup point      :   28.00 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.07(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.854113     0.842797
+                      2            3        0.842805
+                      3            3        0.842835     0.842932
+                      4            3        0.842934
+                      5            2        0.842935
+                      6            1        0.842935
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    3.46(s)
+                  
+  $$ 15:59:33 $$  Restart calculation of branch sub-case  26 begins...
+                  Current burnup point      :   30.00 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.06(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.841581     0.831014
+                      2            3        0.831021
+                      3            3        0.831048     0.831136
+                      4            3        0.831138
+                      5            2        0.831138
+                      6            1        0.831138
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    3.48(s)
+                  
+  $$ 15:59:37 $$  Restart calculation of branch sub-case  27 begins...
+                  Current burnup point      :   32.00 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.07(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.829869     0.820058
+                      2            3        0.820063
+                      3            3        0.820088     0.820169
+                      4            3        0.820171
+                      5            1        0.820171
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    2.97(s)
+                  
+  $$ 15:59:40 $$  Restart calculation of branch sub-case  28 begins...
+                  Current burnup point      :   34.00 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.07(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.818972     0.809905
+                      2            3        0.809907
+                      3            3        0.809930     0.810006
+                      4            3        0.810008
+                      5            1        0.810008
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    2.90(s)
+                  
+  $$ 15:59:44 $$  Restart calculation of branch sub-case  29 begins...
+                  Current burnup point      :   36.00 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.06(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.808869     0.800520
+                      2            3        0.800519
+                      3            3        0.800540     0.800612
+                      4            3        0.800613
+                      5            1        0.800613
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    2.97(s)
+                  
+  $$ 15:59:48 $$  Restart calculation of branch sub-case  30 begins...
+                  Current burnup point      :   38.00 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.06(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.799526     0.791864
+                      2            3        0.791860
+                      3            3        0.791880     0.791948
+                      4            3        0.791949
+                      5            1        0.791950
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    3.04(s)
+                  
+  $$ 15:59:51 $$  Restart calculation of branch sub-case  31 begins...
+                  Current burnup point      :   40.00 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.07(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.790908     0.783901
+                      2            3        0.783893
+                      3            3        0.783912
+                      4            3        0.783927
+                      5            3        0.783938
+                      6            1        0.783941
+                      7            1        0.783944
+                      8            1        0.783947
+                      9            1        0.783949
+                     10            1        0.783951
+                     11            1        0.783953
+                     12            1        0.783955
+                     13            1        0.783957
+                     14            1        0.783959
+                     15            1        0.783960
+                     16            1        0.783961
+                     17            1        0.783963
+                     18            1        0.783964
+                     19            1        0.783965
+                     20            1        0.783966
+                     21            1        0.783967
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    6.50(s)
+                  
+  $$ 15:59:59 $$  Restart calculation of branch sub-case  32 begins...
+                  Current burnup point      :   42.00 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.08(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.782970     0.776587
+                      2            3        0.776576
+                      3            3        0.776594
+                      4            3        0.776608
+                      5            3        0.776619
+                      6            1        0.776621
+                      7            1        0.776624
+                      8            1        0.776627
+                      9            1        0.776629
+                     10            1        0.776631
+                     11            1        0.776633
+                     12            1        0.776635
+                     13            1        0.776637
+                     14            1        0.776638
+                     15            1        0.776640
+                     16            1        0.776641
+                     17            1        0.776642
+                     18            1        0.776643
+                     19            1        0.776644
+                     20            1        0.776645
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    6.54(s)
+                  
+  $$ 16:00:06 $$  Restart calculation of branch sub-case  33 begins...
+                  Current burnup point      :   44.00 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.07(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.775687     0.769877
+                      2            3        0.769863
+                      3            3        0.769879
+                      4            3        0.769893
+                      5            2        0.769900
+                      6            1        0.769903
+                      7            1        0.769906
+                      8            1        0.769909
+                      9            1        0.769911
+                     10            1        0.769913
+                     11            1        0.769915
+                     12            1        0.769917
+                     13            1        0.769919
+                     14            1        0.769921
+                     15            1        0.769922
+                     16            1        0.769923
+                     17            1        0.769925
+                     18            1        0.769926
+                     19            1        0.769927
+                     20            1        0.769928
+                     21            1        0.769929
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    6.45(s)
+                  
+  $$ 16:00:13 $$  Restart calculation of branch sub-case  34 begins...
+                  Current burnup point      :   46.00 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.06(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.769008     0.763725
+                      2            3        0.763709
+                      3            3        0.763725
+                      4            3        0.763738
+                      5            2        0.763744
+                      6            1        0.763747
+                      7            1        0.763750
+                      8            1        0.763753
+                      9            1        0.763755
+                     10            1        0.763757
+                     11            1        0.763759
+                     12            1        0.763761
+                     13            1        0.763763
+                     14            1        0.763764
+                     15            1        0.763766
+                     16            1        0.763767
+                     17            1        0.763768
+                     18            1        0.763770
+                     19            1        0.763771
+                     20            1        0.763772
+                     21            1        0.763773
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    6.16(s)
+                  
+  $$ 16:00:20 $$  Restart calculation of branch sub-case  35 begins...
+                  Current burnup point      :   48.00 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.06(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.762887     0.758081
+                      2            3        0.758063
+                      3            3        0.758077
+                      4            3        0.758090
+                      5            2        0.758096
+                      6            1        0.758099
+                      7            1        0.758102
+                      8            1        0.758104
+                      9            1        0.758106
+                     10            1        0.758109
+                     11            1        0.758111
+                     12            1        0.758112
+                     13            1        0.758114
+                     14            1        0.758116
+                     15            1        0.758117
+                     16            1        0.758118
+                     17            1        0.758120
+                     18            1        0.758121
+                     19            1        0.758122
+                     20            1        0.758123
+                     21            1        0.758124
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    6.24(s)
+                  
+  $$ 16:00:27 $$  Restart calculation of branch sub-case  36 begins...
+                  Current burnup point      :   50.00 (GWd/tU)
+                  Temperature of moderater  :  585.00 (k)
+                  Temperature of fuel       :  877.00 (k)
+                  Boron concentration       :  500.00 (ppm)
+                  Resonant calculation of this sub-case finished.
+                  Resonant calculation time consumed:    0.06(s)
+                  outer_time   inner_time   keff_moc    keff_cmfd
+                      1            3        0.757271     0.752895
+                      2            3        0.752875     0.752938
+                      3            3        0.752938
+                      4            3        0.752940
+                      5            1        0.752940
+                  MOC calculation of this sub-case finished.
+                  MOC calculation time consumed:    2.88(s)
+                  total time consumed:  405.49(s)
+
+                              RRRRRRRRRR    OOOOOO   BBBBBBBB    III   N         N
+                              R         R  O      O  B       B    I    N N       N
+                              R         R O        O B       B    I    N  N      N
+                              RRRRRRRRRR  O        O BBBBBBBB     I    N   N     N
+                              R R         O        O B       B    I    N    N    N
+                              R   R       O        O B        B   I    N     N   N
+                              R     R     O        O B        B   I    N      N  N
+                              R       R    O      O  B        B   I    N       N N
+                              R         R   OOOOOO   BBBBBBBB    III   N         N
+
+                              ****************************************************
+                              * ROBIN V1.70                                      *
+                              *                                                  *
+                              * Shanghai Nustar Nuclear Power Technology Co. Ltd.*
+                              * CNNC Nuclear Power Operations Management Co. Ltd.*
+                              * All Rights Reserved, 2012~2014                   *
+                              ****************************************************
+

@@ -1,0 +1,107 @@
+{% extends "admin/base_site.html" %}
+{% block extrahead %}
+{% load staticfiles %}
+<script src="/static/admin/js/jquery.js" type="text/javascript"></script>
+<script src="{% static 'tragopan/js/add_material.js' %}" type="text/javascript"></script>
+{% endblock %}
+
+{% block content %}
+<form action="/tragopan/add_material/" method="post">
+{% csrf_token %}
+
+
+<h3>Material basic information:</h3>   
+<div id="material_form">{{ form.as_p }}</div>
+
+<h3>Material element composition:</h3>
+{# Material element composition by weight percent #}
+<label for='id_element_input_method'>Element Input Method:</label>
+<select id='id_element_input_method' name='element_input_method'>
+	<option value="1" >By weight percent</option>
+	<option value="2" selected='selected'>By element number</option>
+</select>   
+<br/>
+{{ weight_composition_formset.management_form }}
+<div id="weight_composition_formset" style="display:none">
+    {% for form in weight_composition_formset %}
+    
+           {{ form.as_table }}<br/>
+      
+    {% endfor %}
+</div>
+
+{# Material element composition by element number #} 
+
+{{ number_composition_formset.management_form }}
+<div id="number_composition_formset" >
+    {% for form in number_composition_formset %}
+    
+           {{ form.as_table }}<br/>
+      
+    {% endfor %} 
+</div>
+
+<input type="button" value="Add one" id="add_one_element">
+<input type="button" value="Delete one" id="delete_one_element"><br/>
+
+
+
+
+<h3>Material non-natural nuclide:</h3>
+
+<label for='id_nuclide_input_method'>Nuclide Input Method:</label>
+<select id='id_nuclide_input_method' name='nuclide_input_method'>
+	<option value="0" selected='selected'>None</option>
+	<option value="1" >By weight percent</option>
+	<option value="2">By mole fraction</option>
+</select> 
+<br/>
+{{ weight_nuclide_formset.management_form }}
+<div id="weight_nuclide_formset" style="display:none">
+	
+    {% for form in weight_nuclide_formset %}
+    
+           {{ form.as_table }}<br/>
+      
+    {% endfor %}
+    
+</div>
+
+{{ mole_nuclide_formset.management_form }}
+<div id="mole_nuclide_formset" style="display:none">
+	
+    {% for form in mole_nuclide_formset %}
+    
+           {{ form.as_table }}<br/>
+      
+    {% endfor %}
+    
+</div>
+
+<input type="button" value="Add one" id="add_one_nuclide" style="display:none">
+<input type="button" value="Delete one" id="delete_one_nuclide" style="display:none"><br/>
+
+<strong>weight percent unit is %,meaning that 100 represents 100% </strong><br/>
+<strong>only input nuclide whose abundance is different from its natural abundance</strong><br/>
+
+
+<div id="weight_composition_emptyform" style="display:none">
+       {{ weight_composition_formset.empty_form.as_table }}<br/>
+</div>
+
+<div id="number_composition_emptyform" style="display:none">
+       {{ number_composition_formset.empty_form.as_table }}<br/>
+</div>
+
+<div id="weight_nuclide_emptyform" style="display:none">
+       {{ weight_nuclide_formset.empty_form.as_table }}<br/>
+</div>
+
+<div id="mole_nuclide_emptyform" style="display:none">
+       {{ mole_nuclide_formset.empty_form.as_table }}<br/>
+</div>
+
+<br/>
+<input type="submit" value="Submit"  id='send'/>
+</form>
+{% endblock %}
