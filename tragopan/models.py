@@ -1,9 +1,9 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
-from django.db import connection
-from django.db.models import Q
+
+
 from django.db.models import Max
-from django_pandas.managers import DataFrameManager
+
 
 
 
@@ -32,7 +32,7 @@ class Element(BaseModel):
     nameEN = models.CharField(max_length=40)
     reference = models.CharField(max_length=80, default='IUPAC')
     
-    #objects = DataFrameManager()
+    
     
     @staticmethod
     def autocomplete_search_fields():
