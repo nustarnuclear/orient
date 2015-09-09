@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'tragopan',
     'calculation',
     'import_export',
+    'oauth2_provider',
     'rest_framework',
     
 )
@@ -142,6 +143,8 @@ GRAPPELLI_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'
 GRAPPELLI_ADMIN_TITLE='ORIENT'
 GRAPPELLI_SWITCH_USER=True
 
+
+
 #django rest framework
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
@@ -155,4 +158,10 @@ REST_FRAMEWORK = {
     #'DEFAULT_RENDERER_CLASSES': (
     #    'rest_framework_xml.renderers.XMLRenderer',
     #),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+    'PAGE_SIZE': 10             
 }
