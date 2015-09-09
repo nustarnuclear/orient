@@ -44,7 +44,7 @@ INSTALLED_APPS = (
     'tragopan',
     'calculation',
     'import_export',
-    'oauth2_provider',
+    #'oauth2_provider',
     'rest_framework',
     
 )
@@ -135,7 +135,7 @@ MEDIA_URL="/media/"
 #DEBUG_TOOLBAR_PATCH_SETTINGS = False
 #INTERNAL_IPS=('127.0.0.1','192.168.1.114')
 
-
+LOGIN_REDIRECT_URL=r'/'
 #Custom dashboard
 GRAPPELLI_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'
 

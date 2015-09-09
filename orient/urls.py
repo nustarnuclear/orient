@@ -9,7 +9,7 @@ from django.contrib.auth.models import User,Group
 
 from rest_framework import permissions, routers, serializers, viewsets
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
-from oauth2_provider.ext.rest_framework import TokenHasReadWriteScope, TokenHasScope
+#from oauth2_provider.ext.rest_framework import TokenHasReadWriteScope, TokenHasScope
 # first we define the serializers
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -44,6 +44,8 @@ router.register(r'groups', GroupViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
+
+
 
 urlpatterns = [
     # Examples:

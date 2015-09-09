@@ -513,6 +513,18 @@ class FuelAssemblyLoadingPattern(BaseModel):
             return "{}-{}-{}".format(previous_cycle.cycle,previous_position.row,previous_position.column)
         except:
             return None
+        
+    def get_grid(self):
+        obj=FuelAssemblyLoadingPattern.objects.get(pk=self.pk)
+        fuel_assembly=obj.fuel_assembly
+        grids=fuel_assembly.type.model.grids.all()
+        tmp_lst=[]
+        for grid in grids:
+            tmp=grid.grid.functionality+"("+str(grid.height)+")"
+            tmp_lst.append(tmp)
+        result='-'.join(tmp_lst)
+        return result
+        
        
     def __str__(self):
         return '{} {}'.format(self.cycle, self.reactor_position)
@@ -965,7 +977,10 @@ class BurnablePoisonAssembly(BaseModel):
         obj=BurnablePoisonAssembly.objects.get(pk=self.pk)
         num=obj.rod_positions.count()
         return num  
-     
+    def get_poison_rod_height(self): 
+        obj=BurnablePoisonAssembly.objects.get(pk=self.pk)
+        height=obj.rod_positions.first().height
+        return height
     def __str__(self):
         obj=BurnablePoisonAssembly.objects.get(pk=self.pk)
         num=obj.rod_positions.count()

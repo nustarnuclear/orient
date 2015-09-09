@@ -21,7 +21,7 @@ class FuelAssemblyListingField(serializers.RelatedField):
         first_loading_pattern=FuelAssemblyLoadingPattern.objects.filter(fuel_assembly=value).first()
         first_cycle=first_loading_pattern.cycle.cycle
         first_position=first_loading_pattern.reactor_position
-        return "{}-{}-{}-{}-{}".format(value.pk, value.type.pk,first_cycle,first_position.row,first_position.column)
+        return "{}-{}-{}-{}-{}-{}".format(value.pk, value.type.pk,value.type.assembly_enrichment,first_cycle,first_position.row,first_position.column)
 
 class FuelAssemblyRepositorySerializer(serializers.ModelSerializer):
     
@@ -37,7 +37,7 @@ class FuelAssemblyLoadingPatternSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = FuelAssemblyLoadingPattern
-        fields = ( 'reactor_position','fuel_assembly', 'get_previous')
+        fields = ( 'reactor_position','fuel_assembly', 'get_previous','get_grid')
         
 class PlantSerializer(serializers.ModelSerializer):
     
@@ -55,7 +55,7 @@ class BurnablePoisonAssemblySerializer(serializers.ModelSerializer):
     
     class Meta:
         model = BurnablePoisonAssembly
-        fields = ( 'get_poison_rod_num',)
+        fields = ( 'get_poison_rod_num','get_poison_rod_height',)
    
 class BurnablePoisonAssemblyLoadingPatternSerializer(serializers.ModelSerializer):
     reactor_position=ReactorPositionSerializer()
@@ -64,6 +64,7 @@ class BurnablePoisonAssemblyLoadingPatternSerializer(serializers.ModelSerializer
         model = BurnablePoisonAssemblyLoadingPattern
         fields = ( 'reactor_position','burnable_poison_assembly')
         
+
 class CycleSerializer(serializers.ModelSerializer):
     #unit=UnitParameterSerializer()
     fuel_assembly_loading_patterns=FuelAssemblyLoadingPatternSerializer(many=True, read_only=True)
