@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
 from django.forms.formsets import formset_factory
@@ -10,12 +11,90 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from tragopan.serializers import ElementSerializer,FuelAssemblyLoadingPatternSerializer,CycleSerializer
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view,renderer_classes
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework_xml.parsers import XMLParser
 from rest_framework_xml.renderers import XMLRenderer
 from rest_framework import viewsets
+
+
+#custom xml render
+"""
+Provides XML rendering support.
+"""
+
+from django.utils import six
+from django.utils.xmlutils import SimplerXMLGenerator
+from django.utils.six.moves import StringIO
+from django.utils.encoding import smart_text
+from rest_framework.renderers import BaseRenderer
+
+class CustomXMLRenderer(BaseRenderer):
+    """
+    Renderer which serializes to XML.
+    """
+
+    media_type = 'application/xml'
+    format = 'xml'
+    charset = 'utf-8'
+    item_tag_name = 'list-item'
+
+    def render(self, data, accepted_media_type=None, renderer_context=None):
+        """
+        Renders `data` into serialized XML.
+        """
+        if data is None:
+            return ''
+
+        stream = StringIO()
+
+        xml = SimplerXMLGenerator(stream, self.charset)
+        xml.startDocument()
+        xml.startElement("orient", {'test':'test'})
+
+        self._to_xml(xml, data)
+
+        xml.endElement("orient")
+        xml.endDocument()
+        return stream.getvalue()
+
+    def _to_xml(self, xml, data):
+        if isinstance(data, (list, tuple)):
+            for item in data:
+                xml.startElement(self.item_tag_name, {})
+                self._to_xml(xml, item)
+                xml.endElement(self.item_tag_name)
+
+        elif isinstance(data, dict):
+            for key, value in six.iteritems(data):
+                try:
+            
+                    tmp_lst=value.split(sep='~')
+                    attr_dic={}
+                    for i in range(1,len(tmp_lst)):
+                        if i %2 != 0:
+                            attr_dic[tmp_lst[i]]=tmp_lst[i+1]
+                            
+                    xml.startElement(key, attr_dic)
+                    self._to_xml(xml, tmp_lst[0])
+                    xml.endElement(key)
+                except AttributeError:
+                    xml.startElement(key, {})
+                    self._to_xml(xml, value)
+                    xml.endElement(key)
+                
+
+        elif data is None:
+            # Don't output any value
+            pass
+
+        else:
+            xml.characters(smart_text(data))
+
+
+
+
        
 class ElementViewSet(viewsets.ModelViewSet):
     queryset = Element.objects.all()
@@ -106,12 +185,18 @@ def cycle_list(request,format=None):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
    
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+ 
+ 
+ 
     
-@api_view(['GET', 'PUT', 'DELETE'])
+@api_view(('GET',))
+@renderer_classes((CustomXMLRenderer,))
 def cycle_detail(request, plantname,unit_num,cycle_num,format=None):
     """
     Retrieve, update or delete a code snippet.
     """
+   
+   
     try:
         plant=Plant.objects.get(abbrEN=plantname)
         unit=UnitParameter.objects.get(plant=plant,unit=unit_num)
@@ -123,16 +208,10 @@ def cycle_detail(request, plantname,unit_num,cycle_num,format=None):
         serializer = CycleSerializer(cycle)
         return Response(serializer.data)
 
-    elif request.method == 'PUT':
-        serializer = CycleSerializer(cycle, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    elif request.method == 'DELETE':
-        cycle.delete()
-        return HttpResponse(status=status.HTTP_204_NO_CONTENT)        
+
+    
+      
 
 @api_view(['GET',])
 def hello_test(request,format=None):
@@ -141,4 +220,8 @@ def hello_test(request,format=None):
     os.chdir(BASE_DIR)
     result=os.popen('hello.py').read()
     return Response(result)
+
+
+
+
 

@@ -21,7 +21,8 @@ class FuelAssemblyListingField(serializers.RelatedField):
         first_loading_pattern=FuelAssemblyLoadingPattern.objects.filter(fuel_assembly=value).first()
         first_cycle=first_loading_pattern.cycle.cycle
         first_position=first_loading_pattern.reactor_position
-        return "{}-{}-{}-{}-{}-{}".format(value.pk, value.type.pk,value.type.assembly_enrichment,first_cycle,first_position.row,first_position.column)
+        
+        return "{}~type~{}~enrichment~{}~first_cycle~{}~row~{}~column~{}".format(value.pk, value.type.pk,value.type.assembly_enrichment,first_cycle,first_position.row,first_position.column)
 
 class FuelAssemblyRepositorySerializer(serializers.ModelSerializer):
     
