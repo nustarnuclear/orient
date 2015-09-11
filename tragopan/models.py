@@ -1147,7 +1147,34 @@ class NozzlePlugRodMap(BaseModel):
     def __str__(self):
         return '{} {}'.format(self.nozzle_plug_assembly, self.nozzle_plug_rod)
     
+ 
+class OperationParameter(BaseModel):
+    unit=models.ForeignKey(UnitParameter)
+    date=models.DateField(help_text='Please use <b>YYYY-MM-DD<b> to input the date',blank=True,null=True) 
+    burnup=models.DecimalField(max_digits=15, decimal_places=5,validators=[MinValueValidator(0)],help_text='unit:MWd/tU')
+    nuclear_power=models.DecimalField(max_digits=10, decimal_places=3,validators=[MinValueValidator(0)],help_text='unit:MW')
+    theoretical_boron_density=models.DecimalField(max_digits=7, decimal_places=3,validators=[MinValueValidator(0)],help_text='unit:ppm')
+    measured_boron_density=models.DecimalField(max_digits=7, decimal_places=3,validators=[MinValueValidator(0)],help_text='unit:ppm')
+    coolant_average_temperature=models.DecimalField(max_digits=15, decimal_places=5,validators=[MinValueValidator(0)],help_text='unit:K')
+    axial_power_shift=models.DecimalField(max_digits=9, decimal_places=6,validators=[MaxValueValidator(100),MinValueValidator(-100)],help_text=r"unit:%FP")
+    control_rod_step=models.ManyToManyField(ControlRodAssembly,through='ControlRodAssemblyStep')
     
+    class Meta:
+        db_table='operation_parameter'
+        
+    def __str__(self):
+        return '{} {}'.format(self.unit, self.date)  
+    
+class ControlRodAssemblyStep(BaseModel):
+    operation=models.ForeignKey(OperationParameter)
+    control_rod_assembly=models.ForeignKey(ControlRodAssembly)
+    step=models.PositiveSmallIntegerField()
+    
+    class Meta:
+        db_table='control_rod_assembly_step'
+        
+    def __str__(self):
+        return '{} {}'.format(self.control_rod_assembly, self.step)
 
 
 

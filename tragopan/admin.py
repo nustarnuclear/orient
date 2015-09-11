@@ -698,4 +698,12 @@ class NozzlePlugAssemblyAdmin(admin.ModelAdmin):
 admin.site.register(NozzlePlugAssembly, NozzlePlugAssemblyAdmin)
 
 #####################################################################################
+#operation parameter
+class ControlRodAssemblyStepInline(admin.TabularInline):
+    exclude=('remark',)
+    model=ControlRodAssemblyStep
 
+class OperationParameterAdmin(admin.ModelAdmin):
+    exclude=('remark',)
+    inlines=[ControlRodAssemblyStepInline,]
+admin.site.register(OperationParameter, OperationParameterAdmin)
