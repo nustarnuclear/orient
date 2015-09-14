@@ -641,7 +641,7 @@ class Grid(BaseModel):
                 ('fix','fix'),
     )
     name=models.CharField(max_length=50)
-    fuel_assembly_model=models.ForeignKey(FuelAssemblyModel)
+    fuel_assembly_model=models.ForeignKey(FuelAssemblyModel,related_name='fuel_assembly_grids')
     side_length=models.DecimalField(max_digits=10, decimal_places=5,validators=[MinValueValidator(0)],help_text='cm')
 
     

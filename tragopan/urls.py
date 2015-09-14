@@ -12,6 +12,7 @@ urlpatterns = [
     #url(r'^cycles/(?P<pk>[0-9]+)/$', views.CylcleViewSet.as_view({'get': 'retrieve'})),
     
     url(r'^hello_test/$', views.hello_test),
+    url(r'^base_fuels/$', views.BaseFuel_list),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

@@ -204,8 +204,13 @@ class PreRobinBranch(models.Model):
 
   
 class Ibis(BaseModel):
+    ibis_name=models.CharField(max_length=32)
+    fuel_assembly_type=models.ForeignKey('tragopan.FuelAssemblyType')
     reactor_model=models.ForeignKey('tragopan.ReactorModel')
     ibis_file=models.FileField(upload_to=get_ibis_upload_path)
+    
+    
+    
     
     class Meta:
         db_table='ibis'
@@ -235,7 +240,32 @@ class RobinFile(BaseModel):
         return '{}'.format(self.fuel_assembly_type)
 
     
-
+class BaseFuel(BaseModel):
+    fuel_identity=models.CharField(max_length=32)
+    offset=models.BooleanField(default=False)
+    base_bottom=models.DecimalField(max_digits=10,decimal_places=5,validators=[MinValueValidator(0)],help_text='cm',default=0)
+    axial_composition=models.ManyToManyField(Ibis,through='BaseFuelComposition')
+    
+    class Meta:
+        db_table='base_fuel'
+        
+        
+        
+    def __str__(self):
+        return '{}'.format(self.fuel_identity)
+    
+class BaseFuelComposition(BaseModel):
+    base_fuel=models.ForeignKey(BaseFuel)
+    ibis=models.ForeignKey(Ibis)
+    height=models.DecimalField(max_digits=10,decimal_places=5,validators=[MinValueValidator(0)],help_text='cm',default=0)
+    class Meta:
+        db_table='base_fuel_composition'
+        
+        
+        
+    def __str__(self):
+        return '{}'.format(self.base_fuel)
+    
        
     
     

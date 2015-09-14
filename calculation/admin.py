@@ -108,5 +108,17 @@ admin.site.register(Ibis, IbisAdmin)
 class RobinFileAdmin(admin.ModelAdmin):
     exclude=('remark',)
     list_display=('__str__','input_file','out1_file','log_file')
-admin.site.register(RobinFile, RobinFileAdmin)        
+admin.site.register(RobinFile, RobinFileAdmin)     
+
+class BaseFuelCompositionInline(admin.TabularInline):
+    model=BaseFuelComposition
+    exclude=('remark',)
+
+
+class BaseFuelAdmin(admin.ModelAdmin):
+    exclude=('remark',)
+    inlines=(BaseFuelCompositionInline,)
+admin.site.register(BaseFuel, BaseFuelAdmin) 
+    
+       
 
