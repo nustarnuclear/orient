@@ -218,7 +218,7 @@ class Ibis(BaseModel):
         verbose_name_plural='Ibis'
         
     def __str__(self):
-        return '{}'.format(self.reactor_model)
+        return '{}'.format(self.ibis_name)
     
 
 class RobinFile(BaseModel):
@@ -254,10 +254,10 @@ class BaseFuel(BaseModel):
     def __str__(self):
         return '{}'.format(self.fuel_identity)
     
-class BaseFuelComposition(BaseModel):
+class BaseFuelComposition(models.Model):
     base_fuel=models.ForeignKey(BaseFuel)
     ibis=models.ForeignKey(Ibis)
-    height=models.DecimalField(max_digits=10,decimal_places=5,validators=[MinValueValidator(0)],help_text='cm',default=0)
+    height=models.DecimalField(max_digits=10,decimal_places=5,validators=[MinValueValidator(0)],help_text='cm',)
     class Meta:
         db_table='base_fuel_composition'
         

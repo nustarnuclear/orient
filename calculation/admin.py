@@ -102,7 +102,7 @@ admin.site.register(PreRobinInput, PreRobinInputAdmin)
 
 class IbisAdmin(admin.ModelAdmin):
     exclude=('remark',)
-    list_display=('__str__','ibis_file','last_modified',)
+    list_display=('__str__','reactor_model','ibis_file','last_modified',)
 admin.site.register(Ibis, IbisAdmin)    
 
 class RobinFileAdmin(admin.ModelAdmin):
