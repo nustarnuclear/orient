@@ -1,6 +1,6 @@
 from calculation.models import *
 from rest_framework import serializers
-from tragopan.models import FuelAssemblyType,FuelAssemblyModel,Grid,GridPosition
+from tragopan.models import FuelAssemblyType,FuelAssemblyModel,Grid,GridPosition,UnitParameter,Cycle
 
 
 class GridSerializer(serializers.ModelSerializer):
@@ -48,3 +48,18 @@ class CustomBaseFuelSerializer(serializers.ModelSerializer):
     class Meta:
         model=BaseFuel
         fields = ( 'fuel_identity','offset','base_bottom','composition')
+        
+        
+class UnitParameterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=UnitParameter
+        fields=('plant','unit','reactor_model')
+        
+        
+class CycleSerializer(serializers.ModelSerializer):
+    unit=UnitParameterSerializer()
+    
+    class Meta:
+        model = Cycle
+        fields = ( 'unit','fuel_assembly_loading_patterns')
+        

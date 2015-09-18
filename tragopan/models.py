@@ -728,7 +728,7 @@ class LowerNozzle(BaseModel):
 ################################################# 
 
 class FuelElement(BaseModel):
-    fuel_assembly_model=models.OneToOneField(FuelAssemblyModel)
+    fuel_assembly_model=models.OneToOneField(FuelAssemblyModel,related_name='fuel_elements')
     overall_length=models.DecimalField(max_digits=7, decimal_places=3,validators=[MinValueValidator(0)],help_text='unit:cm')
     active_length=models.DecimalField(max_digits=7, decimal_places=3,validators=[MinValueValidator(0)],help_text='unit:cm',blank=True,null=True)
     plenum_length=models.DecimalField(max_digits=7, decimal_places=3,validators=[MinValueValidator(0)],help_text='unit:cm',blank=True,null=True)
@@ -1055,7 +1055,7 @@ class ControlRodMap(BaseModel):
     
 class ControlRodAssemblyLoadingPattern(BaseModel):
    
-    reactor_position=models.ForeignKey(ReactorPosition,limit_choices_to={'control_rod_mechanism':True})
+    reactor_position=models.ForeignKey(ReactorPosition,related_name='control_rod_assembly_pattern',limit_choices_to={'control_rod_mechanism':True})
     control_rod_assembly=models.ForeignKey(ControlRodAssembly)
     
     
