@@ -207,6 +207,7 @@ class Ibis(BaseModel):
     ibis_name=models.CharField(max_length=32)
     fuel_assembly_type=models.ForeignKey('tragopan.FuelAssemblyType')
     reactor_model=models.ForeignKey('tragopan.ReactorModel')
+    active_length=models.DecimalField(max_digits=10, decimal_places=5,validators=[MinValueValidator(0)],help_text='unit:cm',default=365.80000)
     ibis_file=models.FileField(upload_to=get_ibis_upload_path)
     
     
@@ -255,7 +256,7 @@ class BaseFuel(BaseModel):
         return '{}'.format(self.fuel_identity)
     
 class BaseFuelComposition(models.Model):
-    base_fuel=models.ForeignKey(BaseFuel)
+    base_fuel=models.ForeignKey(BaseFuel,related_name='composition')
     ibis=models.ForeignKey(Ibis)
     height=models.DecimalField(max_digits=10,decimal_places=5,validators=[MinValueValidator(0)],help_text='cm',)
     class Meta:

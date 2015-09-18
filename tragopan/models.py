@@ -257,7 +257,7 @@ class ReactorModel(BaseModel):
     )
 
 
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50,choices=MODEL_CHOICES)
     generation = models.CharField(max_length=2, choices=GENERATION_CHOICES)
     reactor_type = models.CharField(max_length=3, choices=TYPE_CHOICES)
     geometry_type = models.CharField(max_length=9, choices=GEOMETRY_CHOICES)

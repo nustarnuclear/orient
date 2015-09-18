@@ -5,12 +5,13 @@ from django.forms.formsets import formset_factory
 from django.db.models import Sum,F
 from .forms import *
 from tragopan.models import Element,Cycle
+from calculation.models import *
 import os
 #django rest framework
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
-from tragopan.serializers import ElementSerializer,FuelAssemblyLoadingPatternSerializer,CycleSerializer,BaseFuelAssemblySerializer
+from tragopan.serializers import *
 from rest_framework.decorators import api_view,renderer_classes
 from rest_framework.response import Response
 from rest_framework import status
@@ -224,82 +225,7 @@ def hello_test(request,format=None):
 
 
 
-class CustomBaseFuelRenderer(BaseRenderer):
-    """
-    Renderer which serializes to XML.
-    """
 
-    media_type = 'application/xml'
-    format = 'xml'
-    charset = 'utf-8'
-    item_tag_name = 'list-item'
-
-    def render(self, data, accepted_media_type=None, renderer_context=None):
-        """
-        Renders `data` into serialized XML.
-        """
-        if data is None:
-            return ''
-        print(data)
-
-        stream = StringIO()
-
-        xml = SimplerXMLGenerator(stream, self.charset)
-        xml.startDocument()
-        xml.startElement("base_component ", {'basecore_ID':'CP600'})
-
-        self._to_xml(xml, data)
-
-        xml.endElement("base_component ")
-        xml.endDocument()
-        return stream.getvalue()
-
-    def _to_xml(self, xml, data):
-        
-        if isinstance(data, (list, tuple)):
-            for item in data:
-                
-                xml.startElement('base_fuel' , {'fuel_id':'B1','offset':'0','activel_length':'365.8','base_bottom':'0',})
-                self._to_xml(xml, item)
-                xml.endElement('base_fuel' )
-
-        elif isinstance(data, dict):
-            for key, value in six.iteritems(data):
-                try:
-            
-                    tmp_lst=value.split(sep='~')
-                    attr_dic={}
-                    for i in range(1,len(tmp_lst)):
-                        if i %2 != 0:
-                            attr_dic[tmp_lst[i]]=tmp_lst[i+1]
-                            
-                    xml.startElement(key, attr_dic)
-                    self._to_xml(xml, tmp_lst[0])
-                    xml.endElement(key)
-                except AttributeError:
-                    xml.startElement(key, {})
-                    self._to_xml(xml, value)
-                    xml.endElement(key)
-                
-
-        elif data is None:
-            # Don't output any value
-            pass
-
-        else:
-            xml.characters(smart_text(data))
-
-@api_view(('GET',))
-@renderer_classes((CustomBaseFuelRenderer,))
-def BaseFuel_list(request,format=None):
-    """ 
-    List all fuel assembly type
-    """
-    if request.method == 'GET':
-        fuel_assembly_type=FuelAssemblyType.objects.all()
-        serializer = BaseFuelAssemblySerializer(fuel_assembly_type,many=True)
-        print(serializer.data)
-        return Response(serializer.data)
 
     
 

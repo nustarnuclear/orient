@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from tragopan.models import *
-
+from calculation.models import *
 
 class ElementSerializer(serializers.ModelSerializer):
     
@@ -118,13 +118,6 @@ class BaseFuelAssemblySerializer(serializers.ModelSerializer):
         model = FuelAssemblyType
         fields = ( 'assembly_enrichment','model',)
         
-class CustomBaseFuelAssemblySerializer(serializers.Serializer):
-    pass 
-        
-        
-
-
-        
-#
+   
     
         
