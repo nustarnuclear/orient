@@ -57,7 +57,7 @@ class UnitParameterSerializer(serializers.ModelSerializer):
         
         
 class CycleSerializer(serializers.ModelSerializer):
-    unit=UnitParameterSerializer()
+   
     
     class Meta:
         model = Cycle

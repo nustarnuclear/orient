@@ -467,7 +467,7 @@ class UnitParameter(BaseModel):
         return '{} U{}'.format(self.plant, self.unit)
  
 class Cycle(BaseModel):
-    unit=models.ForeignKey(UnitParameter)
+    unit=models.ForeignKey(UnitParameter,related_name='cycles')
     cycle = models.PositiveSmallIntegerField()
     starting_date = models.DateField(help_text='Please use <b>YYYY-MM-DD<b> to input the date',blank=True, null=True)
     shutdown_date = models.DateField(help_text='Please use <b>YYYY-MM-DD<b> to input the date',blank=True, null=True)
@@ -1054,7 +1054,7 @@ class ControlRodMap(BaseModel):
         return '{} {}'.format(self.control_rod_assembly,self.control_rod_type)
     
 class ControlRodAssemblyLoadingPattern(BaseModel):
-   
+    cycle=models.ForeignKey(Cycle,related_name='control_rod_assembly_loading_patterns',blank=True,null=True)
     reactor_position=models.ForeignKey(ReactorPosition,related_name='control_rod_assembly_pattern',limit_choices_to={'control_rod_mechanism':True})
     control_rod_assembly=models.ForeignKey(ControlRodAssembly)
     

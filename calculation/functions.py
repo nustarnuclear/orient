@@ -299,3 +299,27 @@ def generate_prerobin_input(input_id):
         ######################################################calculation segment ends
     
     return File(f)
+
+def generate_base_fuel():
+    ibis_files=Ibis.objects.all()
+    base_fuels=BaseFuel.objects.all()
+    #clear all the existent base fuels
+    base_fuels.delete()
+    index=0
+    for ibis_file in ibis_files:
+        index +=1
+        base_fuel=BaseFuel(fuel_identity='B'+str(index))
+        base_fuel.save()
+        #contains burnable poison assembly
+        if ibis_file.burnable_poison_assembly:
+            relative_ibis_file=Ibis.objects.filter(fuel_assembly_type=ibis_file.fuel_assembly_type,burnable_poison_assembly=None).get()
+            relative_base_fuel_composition=BaseFuelComposition(base_fuel=base_fuel,ibis=relative_ibis_file,height=7.45750)
+            relative_base_fuel_composition.save()
+            base_fuel_composition=BaseFuelComposition(base_fuel=base_fuel,ibis=ibis_file,height=365.8000-7.45750)
+            base_fuel_composition.save()
+        
+        else:
+            base_fuel_composition=BaseFuelComposition(base_fuel=base_fuel,ibis=ibis_file,height=365.8000)
+            base_fuel_composition.save()
+        
+            

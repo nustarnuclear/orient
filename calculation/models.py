@@ -207,6 +207,7 @@ class Ibis(BaseModel):
     ibis_name=models.CharField(max_length=32)
     fuel_assembly_type=models.ForeignKey('tragopan.FuelAssemblyType')
     reactor_model=models.ForeignKey('tragopan.ReactorModel')
+    burnable_poison_assembly=models.ForeignKey('tragopan.BurnablePoisonAssembly',blank=True,null=True)
     active_length=models.DecimalField(max_digits=10, decimal_places=5,validators=[MinValueValidator(0)],help_text='unit:cm',default=365.80000)
     ibis_file=models.FileField(upload_to=get_ibis_upload_path)
     
@@ -247,6 +248,12 @@ class BaseFuel(BaseModel):
     base_bottom=models.DecimalField(max_digits=10,decimal_places=5,validators=[MinValueValidator(0)],help_text='cm',default=0)
     axial_composition=models.ManyToManyField(Ibis,through='BaseFuelComposition')
     
+    def if_insert_burnable_fuel(self):
+        obj=BaseFuel.objects.get(pk=self.pk)
+        composition=obj.composition.count()
+        result=True if composition>1 else False
+        return result
+    
     class Meta:
         db_table='base_fuel'
         
@@ -257,7 +264,7 @@ class BaseFuel(BaseModel):
     
 class BaseFuelComposition(models.Model):
     base_fuel=models.ForeignKey(BaseFuel,related_name='composition')
-    ibis=models.ForeignKey(Ibis)
+    ibis=models.ForeignKey(Ibis,related_name='base_fuels')
     height=models.DecimalField(max_digits=10,decimal_places=5,validators=[MinValueValidator(0)],help_text='cm',)
     class Meta:
         db_table='base_fuel_composition'

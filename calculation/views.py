@@ -271,5 +271,131 @@ def BaseCore_detail(request, plantname,unit_num,cycle_num,format=None):
     if request.method == 'POST':
         data=request.data
         return Response(data)
+  
+  
+  
+  
+class CustomLoadingPatternRenderer(BaseRenderer):
+    """
+    Renderer which serializes to XML.
+    """
+
+    media_type = 'application/xml'
+    format = 'xml'
+    charset = 'utf-8'
+    item_tag_name = 'list-item'
+
+    def render(self, data, accepted_media_type=None, renderer_context=None):
+        """
+        Renders `data` into serialized XML.
+        """
+        if data is None:
+            return ''
+        print(data)
+
+        stream = StringIO()
+
+        xml = SimplerXMLGenerator(stream, self.charset)
+        xml.startDocument()
+        
+        unit=UnitParameter.objects.get(pk=data[0]['unit'])
+        plant=unit.plant
+        reactor_model=unit.reactor_model
+        reactor_positions=reactor_model.positions.all()
+        cycles=unit.cycles.all()
+        #fuel_assembly_model=FuelAssemblyLoadingPattern.objects.get(pk=data[0]['fuel_assembly_loading_patterns'][0]).fuel_assembly.type.model
+        
+        xml.startElement("loading_pattern ", {'basecore_ID':reactor_model.name,'core_id':reactor_model.name+'_U'+str(unit.unit)})
+        
+        
+        for cycle in cycles:
+            
+            control_rod_assembly_loading_patterns=cycle.control_rod_assembly_loading_patterns.all()
+            if control_rod_assembly_loading_patterns:
+                xml.startElement('control_rod', {'cycle':str(cycle.cycle)})
+                
+                xml.startElement('map', {})
+                cra_position_lst=[]
+                for reactor_position in reactor_positions:
+                    cra_pattern=control_rod_assembly_loading_patterns.filter(reactor_position=reactor_position)
+                    if cra_pattern:
+                        cra=cra_pattern.get().control_rod_assembly
+                        cra_position_lst.append('CR1')
+                    else:
+                        cra_position_lst.append('0')
+                xml.characters(smart_text(' '.join(cra_position_lst)))    
+                        
+                xml.endElement('map')
+                
+                xml.endElement('control_rod')
+        
+        for cycle in cycles: 
+            #fuel_assembly_loading_patterns=cycle.fuel_assembly_loading_patterns.all()
+            #burnable_posison_assembly_positions=cycle.burnable_posison_assembly_positions.all()
+           
+            fuel_lst=[]
+            '''
+            for fuel_assembly_loading_pattern in fuel_assembly_loading_patterns:
+                fuel_assembly_type=fuel_assembly_loading_pattern.fuel_assembly.type
+                burnable_poison_assembly_position=burnable_posison_assembly_positions.filter(reactor_position=fuel_assembly_loading_pattern.reactor_position)
+                
+                if burnable_poison_assembly_position:
+                    ibis=Ibis.objects.filter(fuel_assembly_type=fuel_assembly_type,burnable_poison_assembly=burnable_poison_assembly_position.get().burnable_poison_assembly).get()
+                    base_fuel=ibis.base_fuels.get()
+                    print(base_fuel)
+                    fuel_lst.append(base_fuel.base_fuel.fuel_identity)
+                else:
+                    ibis=Ibis.objects.filter(fuel_assembly_type=fuel_assembly_type,burnable_poison_assembly=None).get()
+                    base_fuels=ibis.base_fuels.all()
+                    for base_fuel in base_fuels:
+                        if not base_fuel.base_fuel.if_insert_burnable_fuel:
+                            fuel_lst.append(base_fuel.base_fuel.fuel_identity)
+            '''               
+            for reactor_position in reactor_positions:
+                fuel_assembly_loading_pattern=cycle.fuel_assembly_loading_patterns.filter(reactor_position=reactor_position).get()
+                burnable_poison_assembly_position=cycle.burnable_posison_assembly_positions.filter(reactor_position=reactor_position)
+                fuel_assembly_type=fuel_assembly_loading_pattern.fuel_assembly.type
+                if burnable_poison_assembly_position:
+                    ibis=Ibis.objects.filter(fuel_assembly_type=fuel_assembly_type,burnable_poison_assembly=burnable_poison_assembly_position.get().burnable_poison_assembly).get()
+                    base_fuel=ibis.base_fuels.get()
+                    fuel_lst.append(base_fuel.base_fuel.fuel_identity)
+                else:
+                    ibis=Ibis.objects.filter(fuel_assembly_type=fuel_assembly_type,burnable_poison_assembly=None).get()
+                    base_fuels=ibis.base_fuels.all()     
+                    for base_fuel in base_fuels:
+                        if not base_fuel.base_fuel.if_insert_burnable_fuel():
+                            fuel_lst.append(base_fuel.base_fuel.fuel_identity)
+                            
+            print(len(fuel_lst))    
+                           
+            xml.startElement('fuel', {'cycle':str(cycle.cycle)})
+                
+            
+            xml.startElement('map', {})
+            xml.characters(smart_text(' '.join(fuel_lst)))      
+            xml.endElement('map')
+                    
+            xml.endElement('fuel')
+            
+        xml.endElement("loading_pattern ")
+        xml.endDocument()
+        return stream.getvalue() 
+  
+    
+@api_view(('GET',))
+@renderer_classes((CustomLoadingPatternRenderer,))      
+def LoadingPattern_list(request, plantname,unit_num,format=None):
+    
+    try:
+        plant=Plant.objects.get(abbrEN=plantname)
+        unit=UnitParameter.objects.get(plant=plant,unit=unit_num)
+        cycle=unit.cycles.all()
+    except plant.DoesNotExist or unit.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    
+    if request.method == 'GET':
+        serializer = CycleSerializer(cycle,many=True)
+        return Response(serializer.data)
+                        
         
     

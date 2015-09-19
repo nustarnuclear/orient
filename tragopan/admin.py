@@ -657,7 +657,8 @@ admin.site.register(ControlRodAssembly, ControlRodAssemblyAdmin)
 
 class ControlRodAssemblyLoadingPatternAdmin(admin.ModelAdmin):
     exclude=('remark',)
-    list_display=('reactor_position','control_rod_assembly')
+    list_display=('reactor_position','control_rod_assembly','cycle',)
+    
 admin.site.register(ControlRodAssemblyLoadingPattern, ControlRodAssemblyLoadingPatternAdmin)
 
 
