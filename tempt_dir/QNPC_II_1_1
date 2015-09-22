@@ -1,0 +1,38 @@
+& DATABANK
+   coreID = "QNPC_II_U1"
+   icycle = 1
+   basecoreXML = "CP600/basecore.xml"
+   ibis_dir = "C:\Users\zh\git\tragopan\media\QNPC_II\ibis_files"
+   DB_READ = ''
+   DB_RITE = 'C:\Users\zh\git\tragopan\media\QNPC_II\restart_files\C1.RES'
+/
+& CORESTATE
+   predictor_factor = 1.0
+   system_pressure = 15.5
+   rated_power = 1930.0
+   ralative_power = 0.0
+   CbPPM =    1300.0
+   CBSEARCH = 1
+   BOR_DEP_OPT = 1
+   HCB = 1
+   SDC = 1
+   HTM = 1
+   HTF = 1
+   PPR = 1
+   V_TOTAL = 165000000
+   flowrate_in = 34331.49
+   p2tmo_in(1:6) = 0.0,563.95, 0.50,565.25, 1.0,566.55
+   bank_position(1:5) =  225, 225, 225, 225, 225
+/
+& egret_default
+   nem_version = 2
+   submesh_mode = 1
+   drwm_mode = 1
+   overlap_def(1:9,1) = 5,225, 4,100, 3,100, 2,100, 1
+/
+& DEPL_CASE
+ralative_power = 1
+burnup = 1
+bank_position = 225  225  225  225  225
+SDC = 0
+/

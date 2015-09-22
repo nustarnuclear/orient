@@ -1,7 +1,10 @@
 import os
 from .models import *
 from django.core.files import File
-
+from django.conf import settings
+from decimal import Decimal
+from tragopan.models import Plant,UnitParameter
+from calculation.models import EgretInputXML
 def generate_prerobin_input(input_id):
     pri=PreRobinInput.objects.get(pk=input_id)
     #get segment id
@@ -322,4 +325,70 @@ def generate_base_fuel():
             base_fuel_composition=BaseFuelComposition(base_fuel=base_fuel,ibis=ibis_file,height=365.8000)
             base_fuel_composition.save()
         
-            
+def generate_egret_input(follow_depletion,plant_name,unit_num,cycle_num,depletion_lst):
+    #get this file path
+    path=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),'tempt_dir')
+    #generate a file
+    f=open(os.path.join(path, '_'.join([str(plant_name),str(unit_num),str(cycle_num)])),mode='w+')
+    media_root=settings.MEDIA_ROOT
+    ibis_dir=os.path.join(os.path.join(media_root, plant_name),'ibis_files')
+    restart_dir=os.path.join(os.path.join(media_root, plant_name),'restart_files')
+    sep='\n'
+    #section DATABANK
+    f.write('& DATABANK%s'%sep)
+    f.write('   coreID = "{}_U{}"{}'.format(plant_name,unit_num,sep))
+    f.write('   icycle = {}{}'.format(cycle_num,sep))
+    #xml path
+    plant=Plant.objects.get(abbrEN=plant_name)
+    unit=UnitParameter.objects.get(plant=plant,unit=unit_num)
+    xml_path=EgretInputXML.objects.get(unit=unit)
+    basecore_xml=os.path.join(xml_path.base_core_xml)
+    base_component_xml=os.path.join(media_root,xml_path.base_component_xml)
+    loading_pattern_xml=os.path.join(media_root,xml_path.loading_pattern_xml)
+    f.write('   basecoreXML = "{}"{}'.format(basecore_xml,sep))
+    f.write('   basecomponentXML = "{}"{}'.format(base_component_xml,sep))
+    f.write('   loadingpatternXML = "{}"{}'.format(loading_pattern_xml,sep))
+    f.write('   ibis_dir = "{}"{}'.format(ibis_dir,sep))
+    if cycle_num==1:
+        f.write("   DB_READ = ''%s"%sep)
+        
+    else:
+        read_restart_file=os.path.join(restart_dir,'C%d'%(cycle_num-1))
+        f.write("   DB_READ = '{}.RES'{}".format(read_restart_file,sep))
+    if follow_depletion:
+        write_restart_file=os.path.join(restart_dir,'C%d'%(cycle_num))  
+        f.write("   DB_RITE = '{}.RES'{}".format(write_restart_file,sep))
+    
+    f.write('/%s'%sep) 
+      
+    #section CORESTATE
+    f.write('& CORESTATE%s'%sep)
+    core_state_lst=['   predictor_factor = 1.0','   system_pressure = 15.5','   rated_power = 1930.0','   ralative_power = 0.0','   CbPPM =    1300.0',
+                    '   CBSEARCH = 1','   BOR_DEP_OPT = 1','   HCB = 1','   SDC = 1','   HTM = 1','   HTF = 1','   PPR = 1','   V_TOTAL = 165000000',
+                    '   flowrate_in = 34331.49','   p2tmo_in(1:6) = 0.0,563.95, 0.50,565.25, 1.0,566.55','   bank_position(1:5) =  225, 225, 225, 225, 225']
+    for i in range(len(core_state_lst)):
+        core_state_lst[i]+=sep
+       
+    f.writelines(core_state_lst)
+    f.write('/%s'%sep) 
+    
+    #section egret default
+    f.write('& egret_default%s'%sep)
+    egret_default_lst=['   nem_version = 2','   submesh_mode = 1','   drwm_mode = 1','   overlap_def(1:9,1) = 5,225, 4,100, 3,100, 2,100, 1']
+    for i in range(len(egret_default_lst)):
+        egret_default_lst[i]+=sep
+       
+    f.writelines(egret_default_lst)  
+    f.write('/%s'%sep)
+    
+    #depletion case
+    for depletion_case in depletion_lst:
+        f.write('& DEPL_CASE%s'%sep)
+        for key,value in depletion_case.items():
+            f.write('{} = {}{}'.format(key,value,sep))
+        f.write('/%s'%sep)
+        
+    
+    return File(f)
+    
+               

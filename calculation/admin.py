@@ -130,5 +130,12 @@ class BaseFuelAdmin(admin.ModelAdmin):
     
 admin.site.register(BaseFuel, BaseFuelAdmin) 
     
-       
+
+class EgretTaskAdmin(admin.ModelAdmin):  
+    pass
+admin.site.register(EgretTask, EgretTaskAdmin)
+
+class EgretInputXMLAdmin(admin.ModelAdmin):  
+    pass
+admin.site.register(EgretInputXML, EgretInputXMLAdmin)     
 

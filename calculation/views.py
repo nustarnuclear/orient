@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view,renderer_classes,parser_classes,authentication_classes
 from calculation.models import *
+from calculation.functions import generate_egret_input
 from calculation.serializers import *
 from tragopan.models import ReactorModel,Plant,UnitParameter,Cycle,\
     FuelAssemblyLoadingPattern,ControlRodAssemblyLoadingPattern
@@ -436,8 +437,43 @@ def generate_egret_task(request,format=None):
     
     if request.method == 'POST':
         data=request.data
+        task_name=data['taskName']
+        plant_name=data['plant']
+        unit_num=data['unit']
+        cycle_num=data['cycle']
+        follow_depletion=data['follow_depletion']
+        user=request.user
+        try:
+            plant=Plant.objects.get(abbrEN=plant_name)
+            unit=UnitParameter.objects.get(plant=plant,unit=unit_num)
+            cycle=Cycle.objects.get(unit=unit,cycle=cycle_num)
+        except Exception:
+            error_message={'error_message':'the cycle is nonexistent in database!'}
+            return Response(data=error_message,status=404)
+            
+        #handle depletion case
+        i=1
+        depletion_lst=[]
+        while 'DEPL_CASE'+'_'+str(i) in data:
+            depletion_lst.append(data['DEPL_CASE'+'_'+str(i)])
+            i+=1
+        
+        input_file=generate_egret_input(follow_depletion,plant_name,unit_num,cycle_num,depletion_lst)
+        
+        #check if the task_name repeated
+        task=EgretTask.objects.filter(task_name=task_name,user=user)
+        if task:
+            error_message={'error_message':'the filename already exists'}
+            return Response(data=error_message,status=404)
+        else:
+            task_instance=EgretTask.objects.create(task_name=task_name,user=user,cycle=cycle,follow_index=follow_depletion,)
+            task_instance.egret_input_file.save(name=input_file.name.split(sep='\\')[-1],content=input_file)
+            input_file.close()
+            print(task_instance)
+        print(input_file)
         print(data)
-        print(request.user)
-        return Response(request.data)
+        print(follow_depletion,task_name,plant_name,unit_num,cycle_num,user,depletion_lst)
+        success_message={'success_message':'your request has been handled successfully','task_ID':task_instance.pk}
+        return Response(data=success_message,status=200)
                              
     

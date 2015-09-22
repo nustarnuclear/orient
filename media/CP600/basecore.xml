@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<basecore  ID="CP600" core_type="PWR"><core_geo num_side_asms="13"><fuel_pitch>21.504</fuel_pitch><std_fuel_len>365.800</std_fuel_len><fuel_map>0 0 0 0 0 1 1 1 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 0 0 0 0 0 1 1 1 1 1 1 1 1 1 0 0 0 1 1 1 1 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 0 0 0 1 1 1 1 1 1 1 1 1 0 0 0 0 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0</fuel_map></core_geo><rcca><bank_id index="1" basez="9.5875">A</bank_id><bank_id index="2" basez="9.5875">S</bank_id><bank_id index="3" basez="9.5875">D</bank_id><bank_id index="4" basez="9.5875">C</bank_id><bank_id index="5" basez="9.5875">B</bank_id><map>0 0 0 0 0 A 0 A 0 0 0 0 S 0 D 0 S 0 0 0 0 C 0 0 0 0 0 C 0 0 0 S 0 B 0 B 0 B 0 S 0 0 A 0 0 0 0 0 0 0 0 0 A 0 0 0 D 0 B 0 C 0 B 0 D 0 0 0 A 0 0 0 0 0 0 0 0 0 A 0 0 S 0 B 0 B 0 B 0 S 0 0 0 C 0 0 0 0 0 C 0 0 0 0 S 0 D 0 S 0 0 0 0 A 0 A 0 0 0 0 0</map><step_size>1.5832</step_size></rcca><reflector><bot_br>BR_BOT</bot_br><top_br>
+        BR_TOP
+        BR_TOP BR_TOP
+        BR_TOP BR_TOP BR_TOP
+        BR_TOP BR_TOP BR_TOP BR_TOP
+        BR_TOP BR_TOP BR_TOP BR_TOP BR_TOP
+        BR_TOP BR_TOP BR_TOP BR_TOP BR_TOP BR_TOP
+        BR_TOP BR_TOP BR_TOP BR_TOP BR_TOP BR_TOP BR_TOP
+        BR_TOP BR_TOP BR_TOP BR_TOP BR_TOP BR_TOP BR_TOP BR_TOP
+        BR_TOP BR_TOP BR_TOP BR_TOP BR_TOP BR_TOP BR_TOP BR_TOP BR_TOP
+        BR_TOP BR_TOP BR_TOP BR_TOP BR_TOP BR_TOP BR_TOP
+        BR_TOP BR_TOP BR_TOP BR_TOP BR_TOP BR_TOP BR_TOP
+        BR_TOP BR_TOP BR_TOP
+        BR_TOP BR_TOP BR_TOP</top_br><radial_br index="1">BR3  BR3  BR3  BR9  BR6  BR5  BR7  BR3  BR3  BR9  BR6  BR5  BR7  BR9 </radial_br><radial_br index="2">BR4  BR4  BR4 BR10 BR12 BR11  BR8  BR4  BR4 BR10 BR12 BR11  BR8 BR10 BR12</radial_br></reflector></basecore >

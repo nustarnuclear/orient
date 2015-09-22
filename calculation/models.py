@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator,MaxValueValidator
 from tragopan.models import ReactorModel
+from django.conf import settings
+import os
 # Create your models here.
 
 def get_ibis_upload_path(instance,filename):
@@ -276,27 +278,28 @@ class BaseFuelComposition(models.Model):
     def __str__(self):
         return '{}'.format(self.base_fuel)
     
-    
+
+#egret task    
 def get_egret_base_core_xml_path(instance,filename):
     unit=instance.unit
     reactor_model=unit.reactor_model
     reactor_model_name=reactor_model.name
     plant_name=unit.plant.abbrEN
-    return '{}/{}/{}'.format(reactor_model_name,unit.unit, filename)
+    return '{}/{}'.format(reactor_model_name,filename)
 
 def get_egret_base_component_xml_path(instance,filename):
     unit=instance.unit
     reactor_model=unit.reactor_model
     reactor_model_name=reactor_model.name
     plant_name=unit.plant.abbrEN
-    return '{}/{}/{}'.format(reactor_model_name,unit.unit, filename)       
+    return '{}/unit{}/{}'.format(reactor_model_name,unit.unit, filename)       
 
 def get_egret_loading_pattern_xml_path(instance,filename):
     unit=instance.unit
     reactor_model=unit.reactor_model
     reactor_model_name=reactor_model.name
     plant_name=unit.plant.abbrEN
-    return '{}/{}/{}'.format(reactor_model_name,unit.unit, filename)   
+    return '{}/unit{}/{}'.format(reactor_model_name,unit.unit, filename)   
 
 class EgretInputXML(models.Model):
     unit=models.ForeignKey('tragopan.UnitParameter')
@@ -311,21 +314,50 @@ class EgretInputXML(models.Model):
         
     def __str__(self):
         return '{}'.format(self.unit)
-    
+
+def get_egret_upload_path(instance,filename):
+    username=instance.user.get_username()
+    cycle=instance.cycle
+    unit=cycle.unit
+    plant=unit.plant
+    plant_name=plant.abbrEN
+    name=filename.split(sep='\\')[-1]
+    return 'egret_task/{}/{}/unit{}/cycle{}/input/{}'.format(username,plant_name,unit.unit, cycle.cycle,name) 
+
+media_root=settings.MEDIA_ROOT
+
+
+
        
 class EgretTask(BaseModel):
     task_name=models.CharField(max_length=32)
     cycle=models.ForeignKey('tragopan.Cycle')
-    depletion_case=models.CharField(max_length=320)
+    egret_input_file=models.FileField(upload_to=get_egret_upload_path,blank=True,null=True)
+    follow_index=models.BooleanField()
+    restart_file=models.FilePathField(path=media_root,recursive=True,blank=True,null=True)
+    #depletion_composition=models.ManyToManyField('EgretDepletionCase')
     
     class Meta:
-        db_table='egret_tast'
+        db_table='egret_task'
         
         
         
     def __str__(self):
         return '{}'.format(self.task_name)
      
+'''   
+class EgretDepletionCase(models.Model):
+    ralative_power=models.DecimalField(max_digits=6,decimal_places=5,validators=[MaxValueValidator(1.5),MinValueValidator(0)],help_text='0-1.5',)  
+    burnup=models.DecimalField(max_digits=15,decimal_places=5,validators=[MinValueValidator(0),MaxValueValidator(100)],help_text='GWd/tU',blank=True,null=True)
+    bank_position=models.CommaSeparatedIntegerField(max_length=100)
+    delta_time=models.DecimalField(max_digits=10,decimal_places=3,validators=[MinValueValidator(0),],help_text='day',blank=True,null=True)
+    SDC=models.BooleanField(default=False)
     
-    
-    
+    class Meta:
+        db_table='egret_depletion_case'
+        
+        
+        
+    def __str__(self):
+        return '{}'.format(self.pk)
+'''
