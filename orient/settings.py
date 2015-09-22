@@ -46,6 +46,7 @@ INSTALLED_APPS = (
     'import_export',
     #'oauth2_provider',
     'rest_framework',
+    'rest_framework.authtoken',
     
 )
 
@@ -159,9 +160,10 @@ REST_FRAMEWORK = {
         'rest_framework_xml.renderers.XMLRenderer',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
     ),
-    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated',),
     'PAGE_SIZE': 10             
 }

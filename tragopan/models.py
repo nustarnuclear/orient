@@ -6,6 +6,15 @@ from django.db.models import Max
 
 
 
+#token generated automatically when creating a new user
+from django.conf import settings
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from rest_framework.authtoken.models import Token
+@receiver(post_save, sender=settings.AUTH_USER_MODEL)
+def create_auth_token(sender, instance=None, created=False, **kwargs):
+    if created:
+        Token.objects.create(user=instance)
 
     
 # base model to contain the basic information
@@ -229,8 +238,8 @@ class Plant(BaseModel):
     
 class ReactorModel(BaseModel):
     MODEL_CHOICES=(
-        ('QNPC2','QNPC2'),
-        ('QNPC1','QNPC1'),
+        ('CP600','CP600'),
+        ('CP300','CP300'),
         ('M310','M310'),
         ('CAP1000','CAP1000'),
         ('AP1000','AP1000'),
@@ -264,7 +273,7 @@ class ReactorModel(BaseModel):
     row_symbol = models.CharField(max_length=6, choices=SYMBOL_CHOICES)
     column_symbol = models.CharField(max_length=6, choices=SYMBOL_CHOICES)
     num_loops = models.PositiveSmallIntegerField(blank=True,null=True)
-    
+    fuel_pitch=models.DecimalField(max_digits=7, decimal_places=3,validators=[MinValueValidator(0)],help_text='unit:cm',blank=True,null=True)
     core_equivalent_diameter = models.DecimalField(max_digits=7, decimal_places=3,validators=[MinValueValidator(0)],help_text='unit:cm')
     active_height= models.DecimalField(max_digits=7, decimal_places=3,validators=[MinValueValidator(0)],help_text='unit:cm')
     cold_state_assembly_pitch= models.DecimalField(max_digits=7, decimal_places=4,validators=[MinValueValidator(0)],help_text='unit:cm',blank=True,null=True)

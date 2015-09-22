@@ -102,7 +102,7 @@ admin.site.register(PreRobinInput, PreRobinInputAdmin)
 
 class IbisAdmin(admin.ModelAdmin):
     exclude=('remark',)
-    list_display=('__str__','reactor_model','ibis_file','last_modified','burnable_poison_assembly')
+    list_display=('__str__','plant','ibis_file','last_modified','burnable_poison_assembly')
     list_editable=('burnable_poison_assembly',)
 admin.site.register(Ibis, IbisAdmin)    
 

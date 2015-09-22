@@ -5,8 +5,9 @@ from tragopan.models import ReactorModel
 # Create your models here.
 
 def get_ibis_upload_path(instance,filename):
-    rm=instance.reactor_model
-    return "{}/ibis_files/{}".format(rm.name,filename)
+    plant_name=instance.plant.abbrEN
+    
+    return "{}/ibis_files/{}".format(plant_name,filename)
 
 def get_robin_upload_path(instance,filename):
     plant_name=instance.plant.abbrEN
@@ -204,6 +205,7 @@ class PreRobinBranch(models.Model):
 
   
 class Ibis(BaseModel):
+    plant=models.ForeignKey('tragopan.Plant')
     ibis_name=models.CharField(max_length=32)
     fuel_assembly_type=models.ForeignKey('tragopan.FuelAssemblyType')
     reactor_model=models.ForeignKey('tragopan.ReactorModel')
@@ -274,8 +276,56 @@ class BaseFuelComposition(models.Model):
     def __str__(self):
         return '{}'.format(self.base_fuel)
     
-       
     
+def get_egret_base_core_xml_path(instance,filename):
+    unit=instance.unit
+    reactor_model=unit.reactor_model
+    reactor_model_name=reactor_model.name
+    plant_name=unit.plant.abbrEN
+    return '{}/{}/{}'.format(reactor_model_name,unit.unit, filename)
+
+def get_egret_base_component_xml_path(instance,filename):
+    unit=instance.unit
+    reactor_model=unit.reactor_model
+    reactor_model_name=reactor_model.name
+    plant_name=unit.plant.abbrEN
+    return '{}/{}/{}'.format(reactor_model_name,unit.unit, filename)       
+
+def get_egret_loading_pattern_xml_path(instance,filename):
+    unit=instance.unit
+    reactor_model=unit.reactor_model
+    reactor_model_name=reactor_model.name
+    plant_name=unit.plant.abbrEN
+    return '{}/{}/{}'.format(reactor_model_name,unit.unit, filename)   
+
+class EgretInputXML(models.Model):
+    unit=models.ForeignKey('tragopan.UnitParameter')
+    base_component_xml=models.FileField(upload_to=get_egret_base_component_xml_path)
+    base_core_xml=models.FileField(upload_to=get_egret_base_core_xml_path)
+    loading_pattern_xml=models.FileField(upload_to=get_egret_loading_pattern_xml_path)
+    
+    class Meta:
+        db_table='egret_input_xml'
+        
+        
+        
+    def __str__(self):
+        return '{}'.format(self.unit)
+    
+       
+class EgretTask(BaseModel):
+    task_name=models.CharField(max_length=32)
+    cycle=models.ForeignKey('tragopan.Cycle')
+    depletion_case=models.CharField(max_length=320)
+    
+    class Meta:
+        db_table='egret_tast'
+        
+        
+        
+    def __str__(self):
+        return '{}'.format(self.task_name)
+     
     
     
     

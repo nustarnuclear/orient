@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework.response import Response
-from rest_framework.decorators import api_view,renderer_classes
+from rest_framework.decorators import api_view,renderer_classes,parser_classes,authentication_classes
 from calculation.models import *
 from calculation.serializers import *
 from tragopan.models import ReactorModel,Plant,UnitParameter,Cycle,\
@@ -12,9 +12,13 @@ Provides XML rendering support.
 from rest_framework import status
 from django.utils import six
 from django.utils.xmlutils import SimplerXMLGenerator
+from rest_framework_xml.renderers import XMLRenderer
 from django.utils.six.moves import StringIO
 from django.utils.encoding import smart_text
 from rest_framework.renderers import BaseRenderer
+from rest_framework.parsers import JSONParser,FileUploadParser
+from rest_framework_xml.parsers import XMLParser
+from rest_framework.authentication import TokenAuthentication
 # Create your views here.
 class CustomBaseFuelRenderer(BaseRenderer):
     """
@@ -108,16 +112,25 @@ class CustomBaseFuelRenderer(BaseRenderer):
 
 @api_view(('GET',))
 @renderer_classes((CustomBaseFuelRenderer,))
-def BaseFuel_list(request,format=None):
+def BaseFuel_list(request, plantname,format=None):
     """ 
     List all fuel assembly type
     """
+    
+    try:
+        plant=Plant.objects.get(abbrEN=plantname)
+        #unit=UnitParameter.objects.get(plant=plant,unit=unit_num)
+        
+    except plant.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
     if request.method == 'GET':
-        base_fuels=BaseFuel.objects.all()
+        #serializer = UnitParameterSerializer(unit)
+        base_fuels=BaseFuel.objects.all().filter(axial_composition__plant=plant)
         serializer = CustomBaseFuelSerializer(base_fuels,many=True)
         print(serializer.data)
         return Response(serializer.data)
-    
+
 
 
 
@@ -144,8 +157,8 @@ class CustomBaseCoreRenderer(BaseRenderer):
 
         xml = SimplerXMLGenerator(stream, self.charset)
         xml.startDocument()
-        reactor_model=ReactorModel.objects.get(pk=data['unit']['reactor_model'])
-        fuel_assembly_model=FuelAssemblyLoadingPattern.objects.get(pk=data['fuel_assembly_loading_patterns'][0]).fuel_assembly.type.model
+        reactor_model=ReactorModel.objects.get(pk=data['reactor_model'])
+        
         xml.startElement("basecore ", {'ID':reactor_model.name,'core_type':reactor_model.reactor_type})
         reactor_positions=reactor_model.positions.all()
         num_side_asms=0
@@ -157,11 +170,11 @@ class CustomBaseCoreRenderer(BaseRenderer):
         
         
         xml.startElement('fuel_pitch',{})
-        xml.characters(smart_text(fuel_assembly_model.assembly_pitch))
+        xml.characters(smart_text(reactor_model.fuel_pitch))
         xml.endElement('fuel_pitch')
         
         xml.startElement('std_fuel_len',{})
-        xml.characters(smart_text(fuel_assembly_model.fuel_elements.active_length))
+        xml.characters(smart_text(reactor_model.active_height))
         xml.endElement('std_fuel_len')   
         
         xml.startElement('fuel_map',{})
@@ -255,17 +268,17 @@ class CustomBaseCoreRenderer(BaseRenderer):
 
 @api_view(('GET','POST'))
 @renderer_classes((CustomBaseCoreRenderer,))    
-def BaseCore_detail(request, plantname,unit_num,cycle_num,format=None):
+def BaseCore_detail(request, plantname,unit_num,format=None):
     
     try:
         plant=Plant.objects.get(abbrEN=plantname)
         unit=UnitParameter.objects.get(plant=plant,unit=unit_num)
-        cycle = Cycle.objects.get(unit=unit,cycle=cycle_num)
-    except plant.DoesNotExist or unit.DoesNotExist or cycle.DoesNotExist:
+        
+    except plant.DoesNotExist or unit.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
-        serializer = CycleSerializer(cycle)
+        serializer = UnitParameterSerializer(unit)
         return Response(serializer.data)
     
     if request.method == 'POST':
@@ -334,6 +347,7 @@ class CustomLoadingPatternRenderer(BaseRenderer):
             #burnable_posison_assembly_positions=cycle.burnable_posison_assembly_positions.all()
            
             fuel_lst=[]
+            previous_cycle_lst=[]
             '''
             for fuel_assembly_loading_pattern in fuel_assembly_loading_patterns:
                 fuel_assembly_type=fuel_assembly_loading_pattern.fuel_assembly.type
@@ -355,16 +369,26 @@ class CustomLoadingPatternRenderer(BaseRenderer):
                 fuel_assembly_loading_pattern=cycle.fuel_assembly_loading_patterns.filter(reactor_position=reactor_position).get()
                 burnable_poison_assembly_position=cycle.burnable_posison_assembly_positions.filter(reactor_position=reactor_position)
                 fuel_assembly_type=fuel_assembly_loading_pattern.fuel_assembly.type
-                if burnable_poison_assembly_position:
-                    ibis=Ibis.objects.filter(fuel_assembly_type=fuel_assembly_type,burnable_poison_assembly=burnable_poison_assembly_position.get().burnable_poison_assembly).get()
-                    base_fuel=ibis.base_fuels.get()
-                    fuel_lst.append(base_fuel.base_fuel.fuel_identity)
+                if fuel_assembly_loading_pattern.get_previous():
+                    [previous_cycle,previous_position_row,previous_position_column]=fuel_assembly_loading_pattern.get_previous().split('-')
+                    position='{}{}'.format(previous_position_row.zfill(2), previous_position_column.zfill(2))
+                    fuel_lst.append(position)
+                    if previous_cycle!=cycle.cycle-1:
+                        
+                        previous_cycle_lst.append([previous_cycle,reactor_position.row,reactor_position.column])
+                       
+                        
                 else:
-                    ibis=Ibis.objects.filter(fuel_assembly_type=fuel_assembly_type,burnable_poison_assembly=None).get()
-                    base_fuels=ibis.base_fuels.all()     
-                    for base_fuel in base_fuels:
-                        if not base_fuel.base_fuel.if_insert_burnable_fuel():
-                            fuel_lst.append(base_fuel.base_fuel.fuel_identity)
+                    if burnable_poison_assembly_position:
+                        ibis=Ibis.objects.filter(fuel_assembly_type=fuel_assembly_type,burnable_poison_assembly=burnable_poison_assembly_position.get().burnable_poison_assembly).get()
+                        base_fuel=ibis.base_fuels.get()
+                        fuel_lst.append(base_fuel.base_fuel.fuel_identity)
+                    else:
+                        ibis=Ibis.objects.filter(fuel_assembly_type=fuel_assembly_type,burnable_poison_assembly=None).get()
+                        base_fuels=ibis.base_fuels.all()     
+                        for base_fuel in base_fuels:
+                            if not base_fuel.base_fuel.if_insert_burnable_fuel():
+                                fuel_lst.append(base_fuel.base_fuel.fuel_identity)
                             
             print(len(fuel_lst))    
                            
@@ -374,7 +398,13 @@ class CustomLoadingPatternRenderer(BaseRenderer):
             xml.startElement('map', {})
             xml.characters(smart_text(' '.join(fuel_lst)))      
             xml.endElement('map')
-                    
+            
+            for previous_cycle_info in previous_cycle_lst:
+                
+                xml.startElement('cycle', {'row':str(previous_cycle_info[1]),'col':str(previous_cycle_info[2])})
+                xml.characters(smart_text(previous_cycle_info[0]))      
+                xml.endElement('cycle')
+                            
             xml.endElement('fuel')
             
         xml.endElement("loading_pattern ")
@@ -396,6 +426,18 @@ def LoadingPattern_list(request, plantname,unit_num,format=None):
     if request.method == 'GET':
         serializer = CycleSerializer(cycle,many=True)
         return Response(serializer.data)
-                        
-        
+ 
+ 
+@api_view(('POST',))
+@parser_classes((XMLParser,))
+@renderer_classes((XMLRenderer,)) 
+@authentication_classes((TokenAuthentication,))
+def generate_egret_task(request,format=None):
+    
+    if request.method == 'POST':
+        data=request.data
+        print(data)
+        print(request.user)
+        return Response(request.data)
+                             
     

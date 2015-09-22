@@ -9,6 +9,7 @@ from django.contrib.auth.models import User,Group
 
 from rest_framework import permissions, routers, serializers, viewsets
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.authtoken import views
 #from oauth2_provider.ext.rest_framework import TokenHasReadWriteScope, TokenHasScope
 # first we define the serializers
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -59,7 +60,8 @@ urlpatterns = [
     url(r'^tragopan/', include('tragopan.urls',namespace="tragopan")),
     url(r'^calculation/', include('calculation.urls',namespace="calculation")),
   
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')) 
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^api-token-auth/', views.obtain_auth_token) 
       
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
