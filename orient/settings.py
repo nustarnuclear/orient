@@ -104,7 +104,11 @@ DATABASES = {
 }
 
 
-
+#egret setting on centos
+#USER_HOME_DIR=os.path.expanduser('~django')
+#DJANGO_WORKSPACE=os.path.join(USER_HOME_DIR,'.django_project')
+#TMP_DIR=os.path.join(DJANGO_WORKSPACE,'media')
+#EGRET_WORKSPACE=os.path.join(DJANGO_WORKSPACE,egret_workspace)
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -167,3 +171,5 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated',),
     'PAGE_SIZE': 10             
 }
+
+

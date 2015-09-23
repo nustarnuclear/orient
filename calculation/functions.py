@@ -327,6 +327,7 @@ def generate_base_fuel():
         
 def generate_egret_input(follow_depletion,plant_name,unit_num,cycle_num,depletion_lst):
     #get this file path
+    #path=settings.TMP_DIR
     path=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),'tempt_dir')
     #generate a file
     f=open(os.path.join(path, '_'.join([str(plant_name),str(unit_num),str(cycle_num)])),mode='w+')

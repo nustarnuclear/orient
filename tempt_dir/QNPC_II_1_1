@@ -33,13 +33,13 @@
 /
 & DEPL_CASE
 SDC = 0
-burnup = 0.9
 bank_position = 225  225  225  225  225
+burnup = 0.9
 ralative_power = 0.9
 /
 & DEPL_CASE
 SDC = 0
-bank_position = 225  225  225  225  225
 delta_time = 10
+bank_position = 225  225  225  225  225
 ralative_power = 1
 /

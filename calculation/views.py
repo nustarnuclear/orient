@@ -58,6 +58,7 @@ class CustomBaseFuelRenderer(BaseRenderer):
         for item in data:
             base_fuel_attr={}
             base_fuel_attr['fuel_identity']=item['fuel_identity']
+            print(item['fuel_identity'])
             base_fuel_attr['offset']='1' if item['offset'] else '0'
             base_fuel_attr['base_bottom']=item['base_bottom']
             base_fuel_attr['active_length']=item['composition'][0]['ibis']['active_length']
@@ -128,8 +129,12 @@ def BaseFuel_list(request, plantname,format=None):
     if request.method == 'GET':
         #serializer = UnitParameterSerializer(unit)
         base_fuels=BaseFuel.objects.all().filter(axial_composition__plant=plant)
-        serializer = CustomBaseFuelSerializer(base_fuels,many=True)
-        print(serializer.data)
+        unique_base_fuels=[]
+        for base_fuel in base_fuels:
+            if base_fuel not in unique_base_fuels:
+                unique_base_fuels.append(base_fuel)
+        print(unique_base_fuels)
+        serializer = CustomBaseFuelSerializer(unique_base_fuels,many=True)
         return Response(serializer.data)
 
 
@@ -469,10 +474,7 @@ def generate_egret_task(request,format=None):
             task_instance=EgretTask.objects.create(task_name=task_name,user=user,cycle=cycle,follow_index=follow_depletion,)
             task_instance.egret_input_file.save(name=input_file.name.split(sep='\\')[-1],content=input_file)
             input_file.close()
-            print(task_instance)
-        print(input_file)
-        print(data)
-        print(follow_depletion,task_name,plant_name,unit_num,cycle_num,user,depletion_lst)
+
         success_message={'success_message':'your request has been handled successfully','task_ID':task_instance.pk}
         return Response(data=success_message,status=200)
                              
