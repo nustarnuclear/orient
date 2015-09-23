@@ -335,13 +335,14 @@ def generate_egret_input(follow_depletion,plant_name,unit_num,cycle_num,depletio
     ibis_dir=os.path.join(os.path.join(media_root, plant_name),'ibis_files')
     restart_dir=os.path.join(os.path.join(media_root, plant_name),'restart_files')
     sep='\n'
-    #section DATABANK
-    f.write('& DATABANK%s'%sep)
-    f.write('   coreID = "{}_U{}"{}'.format(plant_name,unit_num,sep))
-    f.write('   icycle = {}{}'.format(cycle_num,sep))
-    #xml path
     plant=Plant.objects.get(abbrEN=plant_name)
     unit=UnitParameter.objects.get(plant=plant,unit=unit_num)
+    #section DATABANK
+    f.write('& DATABANK%s'%sep)
+    f.write('   coreID = "{}_U{}"{}'.format(unit.reactor_model.name,unit_num,sep))
+    f.write('   icycle = {}{}'.format(cycle_num,sep))
+    #xml path
+    
     xml_path=EgretInputXML.objects.get(unit=unit)
     
     rela_basecore_xml=str(xml_path.base_core_xml).split(sep='/')

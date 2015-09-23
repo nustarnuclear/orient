@@ -57,7 +57,7 @@ class CustomBaseFuelRenderer(BaseRenderer):
         #base fuel
         for item in data:
             base_fuel_attr={}
-            base_fuel_attr['fuel_identity']=item['fuel_identity']
+            base_fuel_attr['fuel_id']=item['fuel_identity']
             print(item['fuel_identity'])
             base_fuel_attr['offset']='1' if item['offset'] else '0'
             base_fuel_attr['base_bottom']=item['base_bottom']
@@ -88,11 +88,12 @@ class CustomBaseFuelRenderer(BaseRenderer):
             for grid in fuel_assembly_model['grids']:
                 grid_attr={}
                 grid_attr['hight']=grid['height']
-                grid_attr['width']=grid['grid']['sleeve_height']
-                type=1 if grid['grid']['functionality']=='fix' else 0
-                xml.startElement('spacer_grid',grid_attr)
-                xml.characters(smart_text(type))
-                xml.endElement('spacer_grid')
+                if grid_attr['hight']<base_fuel_attr['active_length']:
+                    grid_attr['width']=grid['grid']['sleeve_height']
+                    type=1 if grid['grid']['functionality']=='fix' else 2
+                    xml.startElement('spacer_grid',grid_attr)
+                    xml.characters(smart_text(type))
+                    xml.endElement('spacer_grid')
                                 
             xml.endElement('base_fuel' )
         #base control rod
@@ -406,10 +407,10 @@ class CustomLoadingPatternRenderer(BaseRenderer):
             xml.endElement('map')
             
             for previous_cycle_info in previous_cycle_lst:
-                
-                xml.startElement('cycle', {'row':str(previous_cycle_info[1]),'col':str(previous_cycle_info[2])})
-                xml.characters(smart_text(previous_cycle_info[0]))      
-                xml.endElement('cycle')
+                if int(previous_cycle_info[0])!=cycle.cycle-1:
+                    xml.startElement('cycle', {'row':str(previous_cycle_info[1]),'col':str(previous_cycle_info[2])})
+                    xml.characters(smart_text(previous_cycle_info[0]))      
+                    xml.endElement('cycle')
                             
             xml.endElement('fuel')
             

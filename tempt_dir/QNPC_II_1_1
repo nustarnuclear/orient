@@ -32,14 +32,14 @@
    overlap_def(1:9,1) = 5,225, 4,100, 3,100, 2,100, 1
 /
 & DEPL_CASE
-SDC = 0
 bank_position = 225  225  225  225  225
+SDC = 0
 burnup = 0.9
 ralative_power = 0.9
 /
 & DEPL_CASE
+bank_position = 225  225  225  225  225
 SDC = 0
 delta_time = 10
-bank_position = 225  225  225  225  225
 ralative_power = 1
 /
