@@ -342,9 +342,16 @@ def generate_egret_input(follow_depletion,plant_name,unit_num,cycle_num,depletio
     plant=Plant.objects.get(abbrEN=plant_name)
     unit=UnitParameter.objects.get(plant=plant,unit=unit_num)
     xml_path=EgretInputXML.objects.get(unit=unit)
-    basecore_xml=os.path.join(xml_path.base_core_xml)
-    base_component_xml=os.path.join(media_root,xml_path.base_component_xml)
-    loading_pattern_xml=os.path.join(media_root,xml_path.loading_pattern_xml)
+    
+    rela_basecore_xml=str(xml_path.base_core_xml).split(sep='/')
+    basecore_xml=os.path.join(media_root,*rela_basecore_xml)
+    
+    rela_base_component_xml=str(xml_path.base_component_xml).split(sep='/')
+    base_component_xml=os.path.join(media_root,*rela_base_component_xml)
+    
+    rela_loading_pattern_xml=str(xml_path.loading_pattern_xml).split(sep='/')
+    loading_pattern_xml=os.path.join(media_root,*rela_loading_pattern_xml)
+    
     f.write('   basecoreXML = "{}"{}'.format(basecore_xml,sep))
     f.write('   basecomponentXML = "{}"{}'.format(base_component_xml,sep))
     f.write('   loadingpatternXML = "{}"{}'.format(loading_pattern_xml,sep))

@@ -1,10 +1,11 @@
 & DATABANK
    coreID = "QNPC_II_U1"
    icycle = 1
-   basecoreXML = "CP600/basecore.xml"
+   basecoreXML = "C:\Users\zh\git\tragopan\media\CP600\basecore.xml"
+   basecomponentXML = "C:\Users\zh\git\tragopan\media\CP600\unit1\base_component.xml"
+   loadingpatternXML = "C:\Users\zh\git\tragopan\media\CP600\unit1\QNPC2_U2.xml"
    ibis_dir = "C:\Users\zh\git\tragopan\media\QNPC_II\ibis_files"
    DB_READ = ''
-   DB_RITE = 'C:\Users\zh\git\tragopan\media\QNPC_II\restart_files\C1.RES'
 /
 & CORESTATE
    predictor_factor = 1.0
@@ -31,8 +32,14 @@
    overlap_def(1:9,1) = 5,225, 4,100, 3,100, 2,100, 1
 /
 & DEPL_CASE
-ralative_power = 1
-burnup = 1
-bank_position = 225  225  225  225  225
 SDC = 0
+burnup = 0.9
+bank_position = 225  225  225  225  225
+ralative_power = 0.9
+/
+& DEPL_CASE
+SDC = 0
+bank_position = 225  225  225  225  225
+delta_time = 10
+ralative_power = 1
 /

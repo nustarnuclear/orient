@@ -89,7 +89,7 @@ class PreRobinInputAdmin(admin.ModelAdmin):
             file=generate_prerobin_input(obj.pk)
             if obj.pre_robin_file:
                 obj.pre_robin_file.delete()
-            obj.pre_robin_file.save(name=file.name.split(sep='\\')[-1],content=file)
+            obj.pre_robin_file.save(name=os.path.basename(file),content=file)
         num=len(queryset)
         if num==1:
             self.message_user(request, "%d PreRobin input file successfully generated." % num)

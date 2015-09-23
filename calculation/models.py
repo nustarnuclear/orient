@@ -321,7 +321,7 @@ def get_egret_upload_path(instance,filename):
     unit=cycle.unit
     plant=unit.plant
     plant_name=plant.abbrEN
-    name=filename.split(sep='\\')[-1]
+    name=os.path.basename(filename)
     return 'egret_task/{}/{}/unit{}/cycle{}/input/{}'.format(username,plant_name,unit.unit, cycle.cycle,name) 
 
 media_root=settings.MEDIA_ROOT
