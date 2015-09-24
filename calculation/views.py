@@ -1,3 +1,6 @@
+import os
+from subprocess import Popen
+from django.conf import settings
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view,renderer_classes,parser_classes,authentication_classes
@@ -473,9 +476,18 @@ def generate_egret_task(request,format=None):
             return Response(data=error_message,status=404)
         else:
             task_instance=EgretTask.objects.create(task_name=task_name,user=user,cycle=cycle,follow_index=follow_depletion,)
-            task_instance.egret_input_file.save(name=input_file.name.split(sep='\\')[-1],content=input_file)
+            task_instance.egret_input_file.save(name=task_name,content=input_file)
             input_file.close()
-
+        rela_file_path=task_instance.egret_input_file.name
+        print(rela_file_path)
+        media_root=settings.MEDIA_ROOT
+        abs_file_path=os.path.join(media_root,*rela_file_path.split(sep='/'))
+        os.chdir(os.path.dirname(abs_file_path))
+        print(abs_file_path)
+        pwd=os.getcwd()
+        print(pwd)       
+        #process=Popen(['runegret','-i',abs_file_path])
+        #while process.poll()==0:
         success_message={'success_message':'your request has been handled successfully','task_ID':task_instance.pk}
         return Response(data=success_message,status=200)
                              

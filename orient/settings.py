@@ -108,7 +108,7 @@ DATABASES = {
 #USER_HOME_DIR=os.path.expanduser('~django')
 #DJANGO_WORKSPACE=os.path.join(USER_HOME_DIR,'.django_project')
 #TMP_DIR=os.path.join(DJANGO_WORKSPACE,'media')
-#EGRET_WORKSPACE=os.path.join(DJANGO_WORKSPACE,egret_workspace)
+#EGRET_WORKSPACE=os.path.join(DJANGO_WORKSPACE,'egret_workspace')
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -133,6 +133,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS=(os.path.join(BASE_DIR, 'static'),)
 
 #media root
+#on centos       
+#MEDIA_ROOT=os.path.join(DJANGO_WORKSPACE, 'media')
 MEDIA_ROOT=os.path.join(BASE_DIR, 'media')
 MEDIA_URL="/media/"
 
